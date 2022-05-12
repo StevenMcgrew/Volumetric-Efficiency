@@ -26,4 +26,8 @@ nav {
     float: right;
     text-transform: uppercase;
 }
+a {
+    line-height: 53rem;
+    padding: 0rem 20rem;
+}
 </style>

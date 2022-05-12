@@ -41,13 +41,24 @@ body {
     margin: 0;
 }
 
-input,
+select,
 textarea,
 button {
     font: inherit;
+    color: inherit;
+}
+
+input {
+    height: 32rem;
+    color: inherit;
 }
 
 #app {
     min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: var(--dark-text-color);
 }
 </style>
