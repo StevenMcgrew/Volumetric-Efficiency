@@ -4,10 +4,26 @@
 
 <template>
     <header>
-        <img src="@/assets/calculator-48x48.png" alt="An image of a calculator">
+        <h1>Volumetric Efficiency</h1>
+        <nav>
+            <router-link to="/">Home</router-link>
+            <router-link to="/about">About</router-link>
+            <router-link to="/legal">Legal</router-link>
+        </nav>
     </header>
 </template>
 
 <style scoped>
+header {
+    padding: 0rem 15rem;
+    box-shadow: 0rem -3rem 8px 0px black;
+}
 
+h1 {
+    display: inline;
+}
+nav {
+    float: right;
+    text-transform: uppercase;
+}
 </style>
