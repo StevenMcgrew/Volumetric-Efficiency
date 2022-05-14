@@ -16,7 +16,6 @@
 <style scoped>
 header {
     padding: 0rem 15rem;
-    box-shadow: 0rem -3rem 8px 0px black;
 }
 
 h1 {
