@@ -1,35 +1,27 @@
 <script setup>
 
+import CalcInput from './CalcInput.vue'
+
 </script>
 
 <template>
     <div>
         <form id="calcForm">
-            <label for="rpm">Engine Speed</label>
-            <input id="rpm" name="rpm" type="number" /><span>RPM</span><br>
-
-            <label for="maf">Mass Air Flow</label>
-            <input id="maf" name="maf" type="number" />
+            <CalcInput :name="'rpm'" :label="'Engine Speed'" :units="'RPM'" :min="0" :max="99999" />
+            <CalcInput :name="'maf'" :label="'Mass Air Flow'" :min="0" :max="9999" :isLineBreak="false"/>
             <label for="mafUnits" class="screen-reader-only">Air Flow Units of Measurement</label>
             <select name="mafUnits" id="mafUnits">
                 <option value="g/s">g/s</option>
                 <option value="kg/s">kg/s</option>
             </select><br>
-
-            <label for="engSize">Engine Size</label>
-            <input id="engSize" name="engSize" type="number" /><span>L</span><br>
-
-            <label for="iat">Intake Air Temp</label>
-            <input id="iat" name="iat" type="number" />
+            <CalcInput :name="'engSize'" :label="'Engine Size'" :units="'L'" :min="0" :max="999" />
+            <CalcInput :name="'iat'" :label="'Intake Air Temp'" :min="0" :max="200" :isLineBreak="false" />
             <label for="iatUnits" class="screen-reader-only">Air Temperature Units of Measurement</label>
             <select name="iatUnits" id="iatUnits">
                 <option value="F">°F</option>
                 <option value="C">°C</option>
             </select><br>
-
-
-            <label for="elevation">Elevation</label>
-            <input id="elevation" name="elevation" type="number" />
+            <CalcInput :name="'elevation'" :label="'Elevation'" :min="-1500" :max="30000" :isLineBreak="false" />
             <label for="elevationUnits" class="screen-reader-only">Elevation Units of Measurements</label>
             <select name="elevationUnits" id="elevationUnits">
                 <option value="ft">ft</option>
@@ -73,7 +65,6 @@ input {
 }
 
 select {
-    margin-left: 4rem;
     height: 30rem;
     width: 46rem;
 }
