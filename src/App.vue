@@ -16,7 +16,7 @@ import Footer from './components/Footer.vue'
 @import url('https://fonts.googleapis.com/css2?family=Mukta+Malar&display=swap');
 
 :root {
-    --app-accent-color: #3b83b0;
+    --app-accent-color: #3186bb;
     --dark-text-color: #3a3a3a;
     --light-gray-text-color: #767676;
     --text-contrast-color: #ffffff;
@@ -60,5 +60,16 @@ input {
 a {
     text-decoration: none;
     color: var(--dark-text-color);
+}
+
+button {
+    outline: none!important;
+    border-style: none;
+    box-shadow: 1px 1px 7px -4px black;
+    border-radius: 4rem;
+    background-color: var(--app-accent-color);
+    color: #fefefe;
+    padding: 7px 15px 6px 15px;
+    cursor: pointer;
 }
 </style>
