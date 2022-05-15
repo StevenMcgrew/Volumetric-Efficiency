@@ -26,6 +26,10 @@ import UnitsSelector from './UnitsSelector.vue'
             <UnitsSelector :name="'elevationUnits'" :label="'Elevation Units of Measurements'"
                 :options="[{ value: 'ft', text: 'ft' },
                            { value: 'm', text: 'm' }]" />
+            <div class="btn-container">
+                <button type="button">Calculate</button>
+                <button type="reset">Reset</button>
+            </div>
         </form>
     </div>
 </template>
@@ -37,5 +41,12 @@ form {
     margin: 0;
     border-radius: 8rem;
     box-shadow: 2rem 2rem 6px 0px grey;
+}
+button {
+    margin: 10rem 10rem 0rem 10rem;
+    width: 100rem;
+}
+.btn-container {
+    text-align: center;
 }
 </style>
