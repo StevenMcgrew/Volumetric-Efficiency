@@ -1,17 +1,20 @@
 <script setup>
 
+import { useCalculatorStore } from '@/stores/calculator'
+const calculator = useCalculatorStore()
+
 let props = defineProps({
     name: String,
     label: String,
-    options: Array,
+    choices: Array,
 })
 
 </script>
 
 <template>
     <label :for="name" class="screen-reader-only">{{ label }}</label>
-    <select :name="name" :id="name">
-        <option v-for="option in options" :value="option.value">{{ option.text }}</option>
+    <select :name="name" :id="name" v-model="calculator[name]">
+        <option v-for="choice in choices" :value="choice">{{ choice }}</option>
     </select>
     <br>
 </template>
