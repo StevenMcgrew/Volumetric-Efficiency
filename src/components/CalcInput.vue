@@ -19,7 +19,7 @@ let props = defineProps({
 
 <template>
     <label :for="name">{{ label }}</label>
-    <input :id="name" :name="name" type="number" :min="min" :max="max" v-model="calculator[name]" />
+    <input :id="name" :name="name" type="number" :min="min" :max="max" v-model="calculator[name]" step=".001" required/>
     <span>{{ units }}</span>
     <br :class="{ remove: !isLineBreak }">
 </template>
@@ -43,5 +43,17 @@ span {
 
 .remove {
     display: none;
+}
+
+/* Remove arrow buttons for Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Remove arrow buttons for Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
 </style>
