@@ -52,7 +52,7 @@ form {
     padding: 20rem;
     margin: 0;
     border-radius: 8rem;
-    box-shadow: 2rem 2rem 6px 0px grey;
+    box-shadow: 2rem 2rem 6px 0px var(--shadow-color);
 }
 
 button {

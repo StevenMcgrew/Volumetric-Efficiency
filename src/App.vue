@@ -16,10 +16,11 @@ import Footer from './components/Footer.vue'
 @import url('https://fonts.googleapis.com/css2?family=Mukta+Malar&display=swap');
 
 :root {
-    --primary-color: #3186bb;
+    --primary-color: #3781dd;
     --text-color: #3a3a3a;
     --background-color: #fefefe;
     --light-gray: #767676;
+    --shadow-color: gray;
 }
 
 *,
