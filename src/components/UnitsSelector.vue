@@ -34,6 +34,6 @@ let props = defineProps({
 
 select {
     height: 30rem;
-    width: 46rem;
+    width: 50rem;
 }
 </style>

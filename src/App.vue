@@ -16,10 +16,10 @@ import Footer from './components/Footer.vue'
 @import url('https://fonts.googleapis.com/css2?family=Mukta+Malar&display=swap');
 
 :root {
-    --app-accent-color: #3186bb;
-    --dark-text-color: #3a3a3a;
-    --light-gray-text-color: #767676;
-    --text-contrast-color: #ffffff;
+    --primary-color: #3186bb;
+    --text-color: #3a3a3a;
+    --background-color: #fefefe;
+    --light-gray: #767676;
 }
 
 *,
@@ -35,8 +35,8 @@ html {
 body {
     font-size: 16rem;
     font-family: 'Mukta Malar', sans-serif;
-    color: var(--dark-text-color);
-    background-color: #fefefe;
+    color: var(--text-color);
+    background-color: var(--background-color);
     min-height: 100vh;
     margin: 0;
 }
@@ -59,7 +59,7 @@ input {
 
 a {
     text-decoration: none;
-    color: var(--dark-text-color);
+    color: var(--text-color);
 }
 
 button {
@@ -67,8 +67,8 @@ button {
     border-style: none;
     box-shadow: 1px 1px 7px -4px black;
     border-radius: 4rem;
-    background-color: var(--app-accent-color);
-    color: #fefefe;
+    background-color: var(--primary-color);
+    color: var(--background-color);
     padding: 7px 15px 6px 15px;
     cursor: pointer;
 }
