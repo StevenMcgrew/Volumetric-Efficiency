@@ -11,7 +11,7 @@ export const useCalculatorStore = defineStore({
         mafUnits: 'g/s',
         iatUnits: '°F',
         elevationUnits: 'ft',
-        result: '',
+        result: null,
     }),
     getters: {
 
@@ -25,7 +25,7 @@ export const useCalculatorStore = defineStore({
                 let gramsPerLiter = this.getGramsPerLiter(Pa, K)
                 let theoreticalMAF = this.getTheoreticalMAF(this.engSize, gramsPerLiter, this.rpm)
                 let VE = (measuredMAF / theoreticalMAF) * 100
-                this.result = Math.round(VE) + '%'
+                this.result = Math.round(VE)
             }
             catch (err) {
                 alert('An error occured. Please refresh the page to try again.\n\n' + err)
@@ -38,7 +38,7 @@ export const useCalculatorStore = defineStore({
             this.engSize = null
             this.iat = null
             this.elevation = null
-            this.result = ''
+            this.result = null
         },
         convertMafIfNeeded(maf, units) {
             return units === 'kg/s' ? this.toGramsPerSecond(maf) : maf
