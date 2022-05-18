@@ -13,7 +13,7 @@ let props = defineProps({
 
 <template>
     <label :for="name" class="screen-reader-only">{{ label }}</label>
-    <select :name="name" :id="name" v-model="calculator[name]">
+    <select :name="name" :id="name" v-model="calculator[name]" @change="calculator.result = null">
         <option v-for="choice in choices" :value="choice">{{ choice }}</option>
     </select>
     <br>
