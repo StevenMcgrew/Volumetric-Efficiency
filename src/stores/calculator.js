@@ -14,17 +14,18 @@ export const useCalculatorStore = defineStore({
         result: null,
     }),
     getters: {
-
+        maf_GS: (state) => state.mafUnits === 'kg/s' ? state.maf / 3.6 : state.maf,
+        iat_F: (state) => state.iatUnits === '°C' ? (state.iat * 1.8) + 32 : state.iat,
+        elevation_ft: (state) => state.elevationUnits === 'm' ? state.elevation * 3.2808 : state.elevation,
     },
     actions: {
         calculateVE() {
             try {
-                let measuredMAF = this.convertMafIfNeeded(this.maf, this.mafUnits)
-                let K = this.convertToKelvin(this.iat, this.iatUnits)
-                let Pa = this.getPascalsViaElevation(this.elevation, this.elevationUnits)
+                let K = this.convertToKelvin(this.iat_F)
+                let Pa = this.getPascalsViaElevation(this.elevation_ft)
                 let gramsPerLiter = this.getGramsPerLiter(Pa, K)
                 let theoreticalMAF = this.getTheoreticalMAF(this.engSize, gramsPerLiter, this.rpm)
-                let VE = (measuredMAF / theoreticalMAF) * 100
+                let VE = (this.maf_GS / theoreticalMAF) * 100
                 this.result = Math.round(VE)
             }
             catch (err) {
@@ -40,26 +41,12 @@ export const useCalculatorStore = defineStore({
             this.elevation = null
             this.result = null
         },
-        convertMafIfNeeded(maf, units) {
-            return units === 'kg/s' ? this.toGramsPerSecond(maf) : maf
-        },
-        toGramsPerSecond(kgPerSecond) {
-            return kgPerSecond / 3.6
-        },
-        convertToKelvin(iat, units) {
-            if (units === '°C') { iat = this.toFahrenheit(iat) }
+        convertToKelvin(iat) {
             return (iat + 459.67) * 5 / 9
         },
-        toFahrenheit(iat) {
-            return (iat * 1.8) + 32
-        },
-        getPascalsViaElevation(elevation, units) {
-            if (units === 'm') { elevation = this.toFeet(elevation) }
+        getPascalsViaElevation(elevation) {
             let baroPressure = this.getBaroFromElevation(elevation)
             return 3386.39 * baroPressure
-        },
-        toFeet(elevation) {
-            return elevation * 3.2808
         },
         getBaroFromElevation(elevation) {
             if (elevation < 3000) { return 29.92 - (elevation * 0.00104) }
