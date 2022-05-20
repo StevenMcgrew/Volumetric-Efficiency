@@ -21,11 +21,11 @@ export const useCalculatorStore = defineStore({
     actions: {
         calculateVE() {
             try {
-                let K = this.convertToKelvin(this.iat_F)
-                let Pa = this.getPascalsViaElevation(this.elevation_ft)
-                let gramsPerLiter = this.getGramsPerLiter(Pa, K)
-                let theoreticalMAF = this.getTheoreticalMAF(this.engSize, gramsPerLiter, this.rpm)
-                let VE = (this.maf_GS / theoreticalMAF) * 100
+                const K = this.convertToKelvin(this.iat_F)
+                const Pa = this.getPascalsViaElevation(this.elevation_ft)
+                const gramsPerLiter = this.getGramsPerLiter(Pa, K)
+                const theoreticalMAF = this.getTheoreticalMAF(this.engSize, gramsPerLiter, this.rpm)
+                const VE = (this.maf_GS / theoreticalMAF) * 100
                 this.result = Math.round(VE)
             }
             catch (err) {
@@ -45,7 +45,7 @@ export const useCalculatorStore = defineStore({
             return (iat + 459.67) * 5 / 9
         },
         getPascalsViaElevation(elevation) {
-            let baroPressure = this.getBaroFromElevation(elevation)
+            const baroPressure = this.getBaroFromElevation(elevation)
             return 3386.39 * baroPressure
         },
         getBaroFromElevation(elevation) {

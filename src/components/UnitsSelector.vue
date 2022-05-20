@@ -3,7 +3,7 @@
 import { useCalculatorStore } from '@/stores/calculator'
 const calculator = useCalculatorStore()
 
-let props = defineProps({
+const props = defineProps({
     name: String,
     label: String,
     choices: Array,
