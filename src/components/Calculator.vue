@@ -3,7 +3,6 @@
 import CalcInput from './CalcInput.vue'
 import UnitsSelector from './UnitsSelector.vue'
 import { useCalculatorStore } from '../stores/calculator'
-
 const calculator = useCalculatorStore()
 
 function onSubmit() {
@@ -17,7 +16,7 @@ function onReset() {
 </script>
 
 <template>
-    <div>
+    <div class="calc-form-container">
         <form id="calcForm" @submit.prevent.stop="onSubmit" @reset.prevent.stop="onReset">
             <CalcInput :name="'rpm'" :label="'Engine Speed'" :units="'RPM'" :min="1" :max="100000" />
 
@@ -33,8 +32,8 @@ function onReset() {
             <UnitsSelector :name="'elevationUnits'" :label="'Elevation Units of Measurements'" :choices="['ft', 'm']" />
 
             <div class="btn-container">
-                <button type="submit">CALCULATE</button>
-                <button type="reset">RESET</button>
+                <button type="submit">Calculate</button>
+                <button type="reset">Reset</button>
             </div>
 
             <div class="output-container">
@@ -47,8 +46,11 @@ function onReset() {
 </template>
 
 <style scoped>
+.calc-form-container {
+    padding: 10rem;
+}
 form {
-    width: max-content;
+    min-width: 300rem;
     padding: 20rem;
     margin: 0;
     border-radius: 8rem;

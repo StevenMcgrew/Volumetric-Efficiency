@@ -29,4 +29,9 @@ a {
     line-height: 53rem;
     padding: 0rem 20rem;
 }
+@media only screen and (max-width: 600px) {
+    nav {
+        display: none;
+    }
+}
 </style>

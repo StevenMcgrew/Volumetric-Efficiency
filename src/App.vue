@@ -72,5 +72,6 @@ button {
     color: var(--background-color);
     padding: 7px 15px 6px 15px;
     cursor: pointer;
+    text-transform: uppercase;
 }
 </style>

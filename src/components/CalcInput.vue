@@ -3,7 +3,7 @@
 import { useCalculatorStore } from '@/stores/calculator.js'
 const calculator = useCalculatorStore()
 
-let props = defineProps({
+const props = defineProps({
     name: String,
     label: String,
     units: String,
@@ -46,14 +46,14 @@ span {
     display: none;
 }
 
-/* Remove arrow buttons for Chrome, Safari, Edge, Opera */
+/* Remove arrow buttons from number input for Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
-/* Remove arrow buttons for Firefox */
+/* Remove arrow buttons from number input for Firefox */
 input[type=number] {
     -moz-appearance: textfield;
 }
