@@ -1,16 +1,20 @@
 <script setup>
 
 const props = defineProps({
+    id: String,
     name: String,
     label: String,
+    modelValue: String,
 })
+
+const emit = defineEmits(['update:modelValue'])
 
 </script>
 
 <template>
     <div>
-        <label :for="name">{{ label }}</label>
-        <input :id="name" :name="name" required/>
+        <label :for="id">{{ label }}</label>
+        <input :id="id" :name="name" required :value="modelValue" @input="emit('update:modelValue', $event.target.value)"/>
     </div>
 </template>
 
