@@ -1,8 +1,11 @@
 <script setup>
 
+import { useSaveFormStore } from '../stores/save-form'
 import VehicleSelector from './VehicleSelector.vue'
 import ModelInput from './ModelInput.vue'
-import { useSaveFormStore } from '../stores/save-form'
+import ConditionRadBtns from './ConditionRadBtns.vue'
+import CommentsTextarea from './CommentsTextarea.vue';
+
 const saveForm = useSaveFormStore()
 
 </script>
@@ -11,13 +14,24 @@ const saveForm = useSaveFormStore()
     <div class="save-container">
         <div :class="[{ 'container-active': saveForm.isVisible }, 'accordian-container']">
             <button :class="[{ 'btn-active': saveForm.isVisible }, 'accordian-btn']"
-                @click="saveForm.toggleVisibility($event)">{{ saveForm.isVisible ? 'Collapse' : 'Save Result' }}</button>
+                @click="saveForm.toggleVisibility($event)">{{ saveForm.isVisible ? 'Collapse' : 'Save Result'
+                }}</button>
             <div class="accordian-panel">
                 <form action="" method="post">
-                    <VehicleSelector :name="'year'" :label="'Year'" />
-                    <VehicleSelector :name="'make'" :label="'Make'" />
-                    <ModelInput :name="'model'" :label="'Model'" />
-                    <VehicleSelector :name="'engine'" :label="'Engine'" />
+                    <div class="form-section vehicle">
+                        <VehicleSelector :name="'year'" :label="'Year'" />
+                        <VehicleSelector :name="'make'" :label="'Make'" />
+                        <ModelInput :name="'model'" :label="'Model'" />
+                        <VehicleSelector :name="'engine'" :label="'Engine'" />
+                    </div>
+                    <div class="form-section">
+                        <ConditionRadBtns :ids="['saveGood', 'saveBad', 'saveUnsure']" />
+                        <CommentsTextarea :name="'saveComments'" />
+                    </div>
+                    <div class="submit-container">
+                        <button>Save</button>
+                        <button>Reset</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -27,6 +41,7 @@ const saveForm = useSaveFormStore()
 <style scoped>
 .save-container {
     padding: 10rem;
+    width: 320rem;
 }
 
 .accordian-container {
@@ -72,7 +87,25 @@ const saveForm = useSaveFormStore()
 
 form {
     min-width: 300rem;
-    padding: 20rem;
+    padding: 0rem 20rem 20rem 20rem;
     margin: 0;
+}
+
+.form-section {
+    display: inline-block;
+}
+
+.vehicle {
+    padding: 9rem 20rem 5rem 0rem;
+    vertical-align: top;
+}
+
+.submit-container {
+    text-align: center;
+}
+
+.submit-container>button {
+    margin: 10rem 5rem 0rem 5rem;
+    width: 110rem;
 }
 </style>

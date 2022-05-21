@@ -20,11 +20,11 @@ const props = defineProps({
 <style scoped>
 label {
     display: inline-block;
-    width: 130rem;
+    width: 70rem;
     padding: 6rem 0rem;
 }
 select {
     height: 30rem;
-    width: 50rem;
+    width: 150rem;
 }
 </style>
