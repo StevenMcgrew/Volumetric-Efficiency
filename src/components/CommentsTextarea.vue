@@ -1,15 +1,19 @@
 <script setup>
 
 const props = defineProps({
+    id: String,
     name: String,
+    modelValue: String,
 })
+
+const emit = defineEmits(['update:modelValue'])
 
 </script>
 
 <template>
     <div>
         <label :for="name">Comments or Keywords:</label>
-        <textarea :id="name" :name="name" rows="2"></textarea>
+        <textarea :id="id" :name="name" rows="2" :value="modelValue" @input="emit('update:modelValue', $event.target.value)"></textarea>
     </div>
 </template>
 

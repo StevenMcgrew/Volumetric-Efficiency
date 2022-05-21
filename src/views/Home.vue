@@ -2,6 +2,7 @@
 
 import Calculator from '../components/Calculator.vue'
 import SaveForm from '../components/SaveForm.vue'
+import SearchForm from '../components/SearchForm.vue'
 
 </script>
 
@@ -13,9 +14,15 @@ import SaveForm from '../components/SaveForm.vue'
         <section class="save">
             <SaveForm />
         </section>
-        <section class="search"></section>
-        <section class="charts"></section>
-        <section class="search-results"></section>
+        <section class="search">
+            <SearchForm />
+        </section>
+        <section class="charts">
+
+        </section>
+        <section class="search-results">
+            
+        </section>
     </main>
 </template>
 

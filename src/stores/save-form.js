@@ -5,12 +5,6 @@ export const useSaveFormStore = defineStore({
     id: 'saveForm',
     state: () => ({
         isVisible: false,
-        year: String,
-        make: String,
-        model: String,
-        engine: String,
-        condition: String,
-        comments: String,
     }),
     getters: {
 
@@ -22,9 +16,11 @@ export const useSaveFormStore = defineStore({
             if (this.isVisible) { panel.style.maxHeight = `${panel.scrollHeight}rem` }
             else { panel.style.maxHeight = null }
         },
-        save() {
+        save(form) {
             const calculator = useCalculatorStore()
-            // Put data in to a JSON object
+            console.log(calculator.rpm)
+            console.log(calculator.ve)
+            console.log(form)
             // Stringify JSON
             // Send to server
             // Handle response

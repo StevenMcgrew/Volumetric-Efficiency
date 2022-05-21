@@ -2,7 +2,10 @@
 
 const props = defineProps({
     ids: Array,
+    modelValue: String,
 })
+
+const emit = defineEmits(['update:modelValue'])
 
 </script>
 
@@ -10,13 +13,13 @@ const props = defineProps({
     <fieldset>
         <legend>Condition:</legend>
 
-        <input type="radio" :id="ids[0]" name="condition" value="Good">
+        <input type="radio" :id="ids[0]" name="condition" value="Good" @change="emit('update:modelValue', $event.target.value)">
         <label :for="ids[0]">Good</label>
 
-        <input type="radio" :id="ids[1]" name="condition" value="Bad">
+        <input type="radio" :id="ids[1]" name="condition" value="Bad" @change="emit('update:modelValue', $event.target.value)">
         <label :for="ids[1]">Bad</label>
 
-        <input type="radio" :id="ids[2]" name="condition" value="Unsure">
+        <input type="radio" :id="ids[2]" name="condition" value="Unsure" @change="emit('update:modelValue', $event.target.value)">
         <label :for="ids[2]">Unsure</label>
 
     </fieldset>

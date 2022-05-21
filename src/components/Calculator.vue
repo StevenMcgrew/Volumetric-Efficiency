@@ -38,7 +38,7 @@ function onReset() {
 
             <div class="output-container">
                 <span>Volumetric Efficiency</span>
-                <output for="rpm maf engSize iat elevation">{{ calculator.result }}</output>
+                <output for="rpm maf engSize iat elevation">{{ calculator.ve }}</output>
                 <span>%</span>
             </div>
         </form>
