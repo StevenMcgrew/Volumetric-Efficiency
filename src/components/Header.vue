@@ -21,14 +21,17 @@ header {
 h1 {
     display: inline;
 }
+
 nav {
     float: right;
     text-transform: uppercase;
 }
+
 a {
     line-height: 53rem;
     padding: 0rem 20rem;
 }
+
 @media only screen and (max-width: 600px) {
     nav {
         display: none;
