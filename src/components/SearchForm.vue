@@ -19,6 +19,12 @@ function search(form) {
 
 <style scoped>
 .search-container {
-    padding: 10rem;
+    border-radius: 8rem;
+    box-shadow: 2rem 2rem 6px 0px var(--shadow-color);
+}
+@media only screen and (max-width: 895px) {
+    .search-container {
+        width: 300rem;
+    }
 }
 </style>

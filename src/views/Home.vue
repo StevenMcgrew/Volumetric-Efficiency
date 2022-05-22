@@ -8,20 +8,17 @@ import SearchForm from '../components/SearchForm.vue'
 
 <template>
     <main>
-        <section class="calculator">
+        <section class="thin">
             <Calculator />
-        </section>
-        <section class="save">
             <SaveForm />
         </section>
-        <section class="search">
-            <SearchForm />
-        </section>
-        <section class="charts">
-
-        </section>
-        <section class="search-results">
-            
+        <section class="wide">
+            <section class="top">
+                <SearchForm />
+            </section>
+            <section class="bottom">
+                
+            </section>
         </section>
     </main>
 </template>
@@ -29,31 +26,37 @@ import SearchForm from '../components/SearchForm.vue'
 <style scoped>
 main {
     display: grid;
-    grid-template-rows: auto auto auto auto auto;
-    grid-template-columns: minmax(300rem, 1fr) auto auto;
-    grid-template-areas: "calculator search charts"
-        "save search-results search-results";
-    align-items: center;
+    grid-template-rows: auto;
+    grid-template-columns: minmax(300rem, auto) 1fr;
+    grid-template-areas: "thin wide";
     justify-items: center;
 }
 
-.calculator {
-    grid-area: calculator;
+.thin {
+    grid-area: thin;
+    display: flex;
+    flex-direction: column;
+    padding: 10rem;
+    align-items: center;
 }
 
-.search {
-    grid-area: search;
+.wide {
+    grid-area: wide;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-areas: "top"
+        "bottom";
+    grid-gap: 10rem;
+    padding-top: 10rem;
+    justify-self: start;
 }
 
-.save {
-    grid-area: save;
+.top {
+    grid-area: top;
 }
 
-.charts {
-    grid-area: charts;
-}
-
-.search-results {
-    grid-area: search-results;
+.bottom {
+    grid-area: bottom;
+    padding-top: 10rem;
 }
 </style>
