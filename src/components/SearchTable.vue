@@ -50,23 +50,25 @@
 
 <style scoped>
 table {
-    font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
 }
 
 td,
 th {
-    border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
 }
 
-tr:nth-child(even) {
-    background-color: #dddddd;
+th {
+    background-color: lightgray;
+    border-right: 1rem solid #8e8e8e;
+    border-bottom: 1rem solid #8e8e8e;
 }
 
 td {
     white-space: pre;
+    font-family: arial, sans-serif;
+    font-size: 14rem;
 }
 </style>

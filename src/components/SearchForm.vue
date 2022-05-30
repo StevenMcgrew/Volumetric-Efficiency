@@ -12,15 +12,13 @@ function search(form) {
 </script>
 
 <template>
-    <div class="search-container">
+    <div class="search-container card">
         <VehicleForm :isSave="false" @on-submit="search" />
     </div>
 </template>
 
 <style scoped>
 .search-container {
-    border-radius: 8rem;
-    box-shadow: 2rem 2rem 6px 0px var(--shadow-color);
     max-width: 538rem;
 }
 @media only screen and (max-width: 895px) {

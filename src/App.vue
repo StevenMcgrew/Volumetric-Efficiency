@@ -74,4 +74,9 @@ button {
     cursor: pointer;
     text-transform: uppercase;
 }
+
+.card {
+    border-radius: 8rem;
+    box-shadow: 2rem 2rem 6px 0px var(--shadow-color);
+}
 </style>

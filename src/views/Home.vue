@@ -17,7 +17,7 @@ import SearchTable from '../components/SearchTable.vue'
             <section class="top">
                 <SearchForm />
             </section>
-            <section class="bottom">
+            <section class="bottom card">
                 <SearchTable />
             </section>
         </section>
@@ -44,7 +44,7 @@ main {
 .wide {
     grid-area: wide;
     display: grid;
-    grid-template-rows: auto auto;
+    grid-template-rows: auto 1fr;
     grid-template-areas: "top"
         "bottom";
     grid-gap: 10rem;
@@ -58,7 +58,8 @@ main {
 
 .bottom {
     grid-area: bottom;
-    padding-top: 10rem;
+    margin: 10rem 0rem 20rem 0rem;
     overflow-x: scroll;
+    height: max-content;
 }
 </style>
