@@ -16,7 +16,7 @@ function onReset() {
 </script>
 
 <template>
-    <form id="calcForm" @submit.prevent.stop="onSubmit" @reset.prevent.stop="onReset">
+    <form id="calcForm" class="card" @submit.prevent.stop="onSubmit" @reset.prevent.stop="onReset">
         <CalcInput :name="'rpm'" :label="'Engine Speed'" :units="'RPM'" :min="1" :max="100000" />
 
         <CalcInput :name="'maf'" :label="'Mass Air Flow'" :min="1" :max="1000000" :isLineBreak="false" />
@@ -47,8 +47,6 @@ function onReset() {
 form {
     min-width: 300rem;
     padding: 20rem;
-    border-radius: 8rem;
-    box-shadow: 2rem 2rem 6px 0px var(--shadow-color);
 }
 
 button {
