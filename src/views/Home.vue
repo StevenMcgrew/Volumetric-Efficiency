@@ -3,6 +3,7 @@
 import Calculator from '../components/Calculator.vue'
 import SaveForm from '../components/SaveForm.vue'
 import SearchForm from '../components/SearchForm.vue'
+import SearchTable from '../components/SearchTable.vue'
 
 </script>
 
@@ -17,7 +18,7 @@ import SearchForm from '../components/SearchForm.vue'
                 <SearchForm />
             </section>
             <section class="bottom">
-                
+                <SearchTable />
             </section>
         </section>
     </main>
@@ -58,5 +59,6 @@ main {
 .bottom {
     grid-area: bottom;
     padding-top: 10rem;
+    overflow-x: scroll;
 }
 </style>
