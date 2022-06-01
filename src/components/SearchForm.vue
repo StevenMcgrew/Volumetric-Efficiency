@@ -12,7 +12,7 @@ function search(form) {
 </script>
 
 <template>
-    <div class="search-container card">
+    <div class="search-container">
         <VehicleForm :isSave="false" @on-submit="search" />
     </div>
 </template>

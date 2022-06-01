@@ -13,13 +13,9 @@ import SearchTable from '../components/SearchTable.vue'
             <Calculator />
             <SaveForm />
         </section>
-        <section class="wide">
-            <section class="top">
-                <SearchForm />
-            </section>
-            <section class="bottom card">
-                <SearchTable />
-            </section>
+        <section class="wide card">
+            <SearchForm />
+            <SearchTable />
         </section>
     </main>
 </template>
@@ -28,7 +24,7 @@ import SearchTable from '../components/SearchTable.vue'
 main {
     display: grid;
     grid-template-rows: auto;
-    grid-template-columns: minmax(300rem, auto) 1fr;
+    grid-template-columns: 340rem auto;
     grid-template-areas: "thin wide";
     justify-items: center;
 }
@@ -43,23 +39,9 @@ main {
 
 .wide {
     grid-area: wide;
-    display: grid;
-    grid-template-rows: auto 1fr;
-    grid-template-areas: "top"
-        "bottom";
-    grid-gap: 10rem;
-    padding-top: 10rem;
     justify-self: start;
-}
-
-.top {
-    grid-area: top;
-}
-
-.bottom {
-    grid-area: bottom;
-    margin: 10rem 0rem 20rem 0rem;
-    overflow-x: scroll;
-    height: max-content;
+    overflow-x: hidden;
+    width: 100%;
+    margin-top: 10rem;
 }
 </style>

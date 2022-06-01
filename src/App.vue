@@ -21,6 +21,8 @@ import Footer from './components/Footer.vue'
     --background-color: #fefefe;
     --light-gray: #767676;
     --shadow-color: gray;
+    --table-border-color: #8e8e8e;
+    --th-background-color: #cecece;
 }
 
 *,
