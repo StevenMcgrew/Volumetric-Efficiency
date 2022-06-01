@@ -1,6 +1,6 @@
 <script setup>
 
-import { useSearchFormStore } from '../stores/search-form'
+import { useSearchFormStore } from '../../stores/search-form'
 
 const search = useSearchFormStore()
 

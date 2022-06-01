@@ -1,7 +1,7 @@
 <script setup>
 
-import { useSearchFormStore } from '../stores/search-form'
-import VehicleForm from './VehicleForm.vue'
+import { useSearchFormStore } from '../../stores/search-form'
+import VehicleForm from '../vehicle/VehicleForm.vue'
 
 const searchForm = useSearchFormStore()
 

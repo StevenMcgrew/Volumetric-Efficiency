@@ -1,9 +1,9 @@
 <script setup>
 
-import Calculator from '../components/Calculator.vue'
-import SaveForm from '../components/SaveForm.vue'
-import SearchForm from '../components/SearchForm.vue'
-import SearchTable from '../components/SearchTable.vue'
+import Calculator from '../components/calculator/Calculator.vue'
+import SaveForm from '../components/save/SaveForm.vue'
+import SearchForm from '../components/search/SearchForm.vue'
+import SearchTable from '../components/search/SearchTable.vue'
 
 </script>
 
@@ -43,5 +43,6 @@ main {
     overflow-x: hidden;
     width: 100%;
     margin-top: 10rem;
+    height: max-content;
 }
 </style>

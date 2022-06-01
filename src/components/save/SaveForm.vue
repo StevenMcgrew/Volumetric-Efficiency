@@ -1,7 +1,7 @@
 <script setup>
 
-import { useSaveFormStore } from '../stores/save-form'
-import VehicleForm from './VehicleForm.vue'
+import { useSaveFormStore } from '../../stores/save-form'
+import VehicleForm from '../vehicle/VehicleForm.vue'
 
 const saveForm = useSaveFormStore()
 

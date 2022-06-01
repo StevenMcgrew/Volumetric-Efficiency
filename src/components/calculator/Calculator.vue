@@ -2,7 +2,7 @@
 
 import CalcInput from './CalcInput.vue'
 import UnitsSelector from './UnitsSelector.vue'
-import { useCalculatorStore } from '../stores/calculator'
+import { useCalculatorStore } from '@/stores/calculator'
 const calculator = useCalculatorStore()
 
 function onSubmit() {
