@@ -14,9 +14,10 @@ import Chart from './Chart.vue'
 <style scoped>
 .charts-container {
     display: inline-block;
-    width: 300rem;
     vertical-align: top;
     border: 1px solid var(--table-border-color);
-    padding: 20rem;
+    padding: 10rem 0rem;
+    border-radius: 3rem;
+    margin-top: 20rem;
 }
 </style>
