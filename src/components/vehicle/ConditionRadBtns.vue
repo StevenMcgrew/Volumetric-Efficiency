@@ -43,14 +43,14 @@ label {
 }
 
 label:nth-of-type(1) {
-    color: #008900;
+    color: var(--good-indicator-color);
 }
 
 label:nth-of-type(2) {
-    color: #e22020;
+    color: var(--bad-indicator-color);
 }
 
 label:nth-of-type(3) {
-    color: #bbbb21;
+    color: var(--unsure-indicator-color);
 }
 </style>
