@@ -4,6 +4,7 @@ import Calculator from '../components/calculator/Calculator.vue'
 import SaveForm from '../components/save/SaveForm.vue'
 import SearchForm from '../components/search/SearchForm.vue'
 import SearchTable from '../components/search/SearchTable.vue'
+import Charts from '../components/charts/Charts.vue';
 
 </script>
 
@@ -15,6 +16,7 @@ import SearchTable from '../components/search/SearchTable.vue'
         </section>
         <section class="wide card">
             <SearchForm />
+            <Charts />
             <SearchTable />
         </section>
     </main>

@@ -58,14 +58,14 @@ search.fetchRecent()
 
 <style scoped>
 .table-container {
-    width: 100%;
+    width: calc(100% - 20rem);
     overflow-x: scroll;
-    margin: 0rem 10rem;
+    margin: 10rem;
+    border: 1px solid var(--table-border-color);
 }
 
 table {
     border-collapse: collapse;
-    border: 1px solid var(--table-border-color);
 }
 
 td,
@@ -76,7 +76,8 @@ th {
 
 th {
     background-color: var(--th-background-color);
-    border: 1px solid var(--table-border-color);
+    border-bottom: 1px solid var(--table-border-color);
+    border-right: 1px solid var(--table-border-color);
 }
 
 td {

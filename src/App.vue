@@ -23,6 +23,7 @@ import Footer from './components/Footer.vue'
     --shadow-color: gray;
     --table-border-color: #8e8e8e;
     --th-background-color: #cecece;
+    --chart-background-color: black;
 }
 
 *,
