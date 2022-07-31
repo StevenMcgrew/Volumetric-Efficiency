@@ -1,0 +1,3 @@
+node_modules/* linguist-vendored
+*.cs linguist-vendored
+*.php linguist-vendored
