@@ -51,13 +51,22 @@ body {
 select,
 textarea,
 button {
-    font: inherit;
     color: inherit;
+    font-size: 14rem;
+}
+
+textarea {
+    font-family: Arial;
+}
+
+button {
+    font: inherit;
 }
 
 input {
     height: 32rem;
     color: inherit;
+    font-size: 14rem;
 }
 
 #app {
@@ -70,7 +79,7 @@ a {
 }
 
 button {
-    outline: none!important;
+    outline: none !important;
     border-style: none;
     box-shadow: 1px 1px 7px -4px black;
     border-radius: 4rem;
