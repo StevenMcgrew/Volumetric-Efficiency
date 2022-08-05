@@ -21,15 +21,15 @@ search.fetchRecent()
                 <th>MAF</th>
                 <th>Comments/Keywords</th>
             </tr>
-            <tr v-for="r in search.records" :id="r._id">
-                <td>{{ r._year }}</td>
-                <td>{{ r._make }}</td>
-                <td>{{ r._model }}</td>
-                <td>{{ r._engine }}</td>
-                <td :class="r._condition">{{ r._condition }}</td>
-                <td>{{ `${Math.round(Number.parseFloat(r._ve))}%`}}</td>
-                <td>{{ `${Number.parseFloat(r._maf).toFixed(1)}${r._mafunits}`}}</td>
-                <td>{{ r._comments }}</td>
+            <tr v-for="r in search.records" :id="r.id">
+                <td>{{ r.year }}</td>
+                <td>{{ r.make }}</td>
+                <td>{{ r.model }}</td>
+                <td>{{ r.engine }}</td>
+                <td :class="r.condition">{{ r.condition }}</td>
+                <td>{{ `${Math.round(Number.parseFloat(r.ve))}%`}}</td>
+                <td>{{ `${Number.parseFloat(r.maf).toFixed(1)}${r.maf_units}`}}</td>
+                <td>{{ r.comments }}</td>
             </tr>
         </table>
     </div>

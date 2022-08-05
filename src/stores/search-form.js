@@ -13,19 +13,12 @@ export const useSearchFormStore = defineStore({
         search(form) {
             console.log(form)
         },
-        async fetchRecent() {
-            try {
-                let response = await fetch(url.last100)
-                if (response.ok) {
-                    let json = await response.json()
-                    this.records = json
-                } else {
-                    alert(`A problem occured when trying to fetch recent records. HTTP-Error:  ${response.status} ${response.statusText}`)
-                }
-            }
-            catch (err) {
-                alert(`A problem occured when trying to fetch recent records. Error:  ${err}`)
-            }
+        fetchRecent() {
+            fetch(`${url.calculations}?limit=20`)
+                .then((response) => { if (!response.ok) { throw new Error(response.statusText) }
+                                      return response.json() })
+                .then((data) => this.records = data)
+                .catch((error) => alert(error))
         },
     }
 })
