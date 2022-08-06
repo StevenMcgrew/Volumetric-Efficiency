@@ -1,4 +1,7 @@
 import { defineStore } from 'pinia'
+import { createToast } from 'mosha-vue-toastify';
+import 'mosha-vue-toastify/dist/style.css'
+
 
 export const useCalculatorStore = defineStore({
     id: 'calculator',
@@ -28,9 +31,14 @@ export const useCalculatorStore = defineStore({
                 const VE = (this.maf_GS / theoreticalMAF) * 100
                 this.ve = Math.round(VE)
             }
-            catch (err) {
-                alert('An error occured. Please refresh the page to try again.\n\n' + err)
-                console.error(err)
+            catch (error) {
+                const toastOptions = {
+                    type: 'danger',
+                    position: 'bottom-center',
+                    showIcon: true,
+                }
+                createToast('Error. Try refreshing the page and trying again.', toastOptions)
+                console.log(error)
             }
         },
         customReset() {

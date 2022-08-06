@@ -7,19 +7,31 @@ const props = defineProps({
 
 const emit = defineEmits(['update:modelValue'])
 
+let storedChoice = ''
+function radBtnClicked(e) {
+    if (e.target.value === storedChoice) {
+        e.target.checked = false
+        storedChoice = ''
+    }
+    else {
+        emit('update:modelValue', e.target.value)
+        storedChoice = e.target.value
+    }
+}
+
 </script>
 
 <template>
     <fieldset>
         <legend>Condition:</legend>
 
-        <input type="radio" :id="ids[0]" name="condition" value="Good" @change="emit('update:modelValue', $event.target.value)">
+        <input type="radio" :id="ids[0]" name="condition" value="Good" @click="radBtnClicked($event)">
         <label :for="ids[0]">Good</label>
 
-        <input type="radio" :id="ids[1]" name="condition" value="Bad" @change="emit('update:modelValue', $event.target.value)">
+        <input type="radio" :id="ids[1]" name="condition" value="Bad" @click="radBtnClicked($event)">
         <label :for="ids[1]">Bad</label>
 
-        <input type="radio" :id="ids[2]" name="condition" value="Unsure" @change="emit('update:modelValue', $event.target.value)">
+        <input type="radio" :id="ids[2]" name="condition" value="Unsure" @click="radBtnClicked($event)">
         <label :for="ids[2]">Unsure</label>
 
     </fieldset>
