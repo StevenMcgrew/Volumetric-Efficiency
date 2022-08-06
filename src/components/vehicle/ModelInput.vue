@@ -14,7 +14,7 @@ const emit = defineEmits(['update:modelValue'])
 <template>
     <div>
         <label :for="id">{{ label }}</label>
-        <input :id="id" :name="name" required :value="modelValue" @input="emit('update:modelValue', $event.target.value)"/>
+        <input :id="id" :name="name" :value="modelValue" @input="emit('update:modelValue', $event.target.value)"/>
     </div>
 </template>
 

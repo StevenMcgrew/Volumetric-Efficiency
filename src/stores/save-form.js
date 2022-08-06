@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { useCalculatorStore } from '../stores/calculator'
-import { url } from '../../web-addresses'
+import { url } from '../../config'
 
 export const useSaveFormStore = defineStore({
     id: 'saveForm',
