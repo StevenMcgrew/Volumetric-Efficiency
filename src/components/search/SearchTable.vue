@@ -1,6 +1,7 @@
 <script setup>
 
 import { useSearchFormStore } from '../../stores/search-form'
+import Loader from '../Loader.vue'
 
 const search = useSearchFormStore()
 
@@ -9,6 +10,10 @@ search.fetchRecent()
 </script>
 
 <template>
+    <div class="search-info-panel">
+        <span class="search-info-text">Loading</span>
+        <Loader class="loader" :fill="'var(--text-color)'" :width="'30rem'" :height="'30rem'" />
+    </div>
     <div class="table-container">
         <table>
             <tr>
@@ -41,6 +46,20 @@ search.fetchRecent()
     overflow-x: scroll;
     margin: 10rem;
     border: 1px solid var(--table-border-color);
+}
+
+.search-info-panel {
+    display: flex;
+    padding: 10rem 0rem 0rem 16rem;
+}
+
+.search-info-text {
+    display: inline-block;
+    padding-top: 2rem;
+}
+
+.loader {
+    display: none;
 }
 
 table {

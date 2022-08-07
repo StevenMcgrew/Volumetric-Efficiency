@@ -13,7 +13,7 @@ const emit = defineEmits(['update:modelValue'])
 <template>
     <div>
         <label :for="name">Comments or Keywords:</label>
-        <textarea :id="id" :name="name" rows="2" :value="modelValue" @input="emit('update:modelValue', $event.target.value)"></textarea>
+        <textarea :id="id" :name="name" rows="3" :value="modelValue" @input="emit('update:modelValue', $event.target.value)"></textarea>
     </div>
 </template>
 

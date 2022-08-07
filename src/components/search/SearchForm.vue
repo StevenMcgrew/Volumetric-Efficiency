@@ -19,10 +19,9 @@ function search(form) {
 
 <style scoped>
 .search-container {
-    display: inline-block;
     max-width: 538rem;
 }
-@media only screen and (max-width: 895px) {
+@media only screen and (max-width: 913px) {
     .search-container {
         width: 300rem;
     }
