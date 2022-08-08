@@ -3,10 +3,10 @@
 import { useSearchFormStore } from '../../stores/search-form'
 import VehicleForm from '../vehicle/VehicleForm.vue'
 
-const searchForm = useSearchFormStore()
+const searchStore = useSearchFormStore()
 
 function search(form) {
-    searchForm.search(form)
+    searchStore.search(form)
 }
 
 </script>

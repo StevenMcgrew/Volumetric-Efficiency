@@ -15,3 +15,18 @@ export function stringToKeywords(str) {
     if (queryArray.length) { queryString = queryArray.join('&') }
     return queryString
 }
+
+function getFirstNumWords(str, num) {
+    return str.split(' ').filter(word => word !== '').slice(0, num).join(' ')
+}
+
+export function jsonToSearchInfo(json) {
+    let searchInfo = ''
+    if (json.year) { searchInfo += (json.year + ' ') }
+    if (json.make) { searchInfo += (json.make + ' ') }
+    if (json.model) { searchInfo += (json.model + ' ') }
+    if (json.engine) { searchInfo += (json.engine + ' ') }
+    if (json.condition) { searchInfo += (json.condition + ' ') }
+    if (json.comments) { searchInfo += getFirstNumWords(json.comments, 3) }
+    return searchInfo
+}

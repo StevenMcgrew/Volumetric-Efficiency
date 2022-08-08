@@ -21,17 +21,17 @@ export const useSaveFormStore = defineStore({
         },
         
         save(form) {
-            const calculator = useCalculatorStore()
+            const calcStore = useCalculatorStore()
             const toastOptions = {
                 type: 'danger',
                 position: 'bottom-center',
                 showIcon: true,
             }
-            if (!calculator.rpm) { createToast('Engine Speed cannot be empty. Only comments is optional.', toastOptions); return; }
-            if (!calculator.maf) { createToast('Mass Air Flow cannot be empty. Only comments is optional.', toastOptions); return; }
-            if (!calculator.iat) { createToast('Intake Air Temp cannot be empty. Only comments is optional.', toastOptions); return; }
-            if (!calculator.elevation) { createToast('Elevation cannot be empty. Only comments is optional.', toastOptions); return; }
-            if (!calculator.ve) { createToast('Volumetric Efficiency cannot be empty. Only comments is optional.', toastOptions); return; }
+            if (!calcStore.rpm) { createToast('Engine Speed cannot be empty. Only comments is optional.', toastOptions); return; }
+            if (!calcStore.maf) { createToast('Mass Air Flow cannot be empty. Only comments is optional.', toastOptions); return; }
+            if (!calcStore.iat) { createToast('Intake Air Temp cannot be empty. Only comments is optional.', toastOptions); return; }
+            if (!calcStore.elevation) { createToast('Elevation cannot be empty. Only comments is optional.', toastOptions); return; }
+            if (!calcStore.ve) { createToast('Volumetric Efficiency cannot be empty. Only comments is optional.', toastOptions); return; }
             if (!form.year) { createToast('Year is required. Only comments is optional.', toastOptions); return; }
             if (!form.make) { createToast('Make is required. Only comments is optional.', toastOptions); return; }
             if (!form.model) { createToast('Model is required. Only comments is optional.', toastOptions); return; }
@@ -45,14 +45,14 @@ export const useSaveFormStore = defineStore({
                 engine: form.engine,
                 condition: form.condition,
                 comments: form.comments,
-                maf_units: calculator.mafUnits,
-                temp_units: calculator.iatUnits,
-                elevation_units: calculator.elevationUnits,
-                rpm: calculator.rpm,
-                maf: calculator.maf,
-                air_temp: calculator.iat,
-                elevation: calculator.elevation,
-                ve: calculator.ve,
+                maf_units: calcStore.mafUnits,
+                temp_units: calcStore.iatUnits,
+                elevation_units: calcStore.elevationUnits,
+                rpm: calcStore.rpm,
+                maf: calcStore.maf,
+                air_temp: calcStore.iat,
+                elevation: calcStore.elevation,
+                ve: calcStore.ve,
             }
             fetch(url.calculations, { method: 'POST',
                                       headers: { 'Content-Type': 'application/json' },

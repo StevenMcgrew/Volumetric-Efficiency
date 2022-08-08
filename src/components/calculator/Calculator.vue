@@ -3,14 +3,14 @@
 import CalcInput from './CalcInput.vue'
 import UnitsSelector from './UnitsSelector.vue'
 import { useCalculatorStore } from '@/stores/calculator'
-const calculator = useCalculatorStore()
+const calcStore = useCalculatorStore()
 
 function onSubmit() {
-    calculator.calculateVE()
+    calcStore.calculateVE()
 }
 
 function onReset() {
-    calculator.customReset()
+    calcStore.customReset()
 }
 
 </script>
@@ -37,7 +37,7 @@ function onReset() {
 
         <div class="output-container">
             <span>Volumetric Efficiency</span>
-            <output for="rpm maf engSize iat elevation">{{ calculator.ve }}</output>
+            <output for="rpm maf engSize iat elevation">{{ calcStore.ve }}</output>
             <span>%</span>
         </div>
     </form>
