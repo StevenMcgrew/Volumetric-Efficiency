@@ -1,18 +1,23 @@
 <script setup>
-
+import { storeToRefs } from 'pinia'
 import { useSearchFormStore } from '../../stores/search-form'
 import Loader from '../Loader.vue'
 
-const search = useSearchFormStore()
+const searchStore = useSearchFormStore()
+const { isLoading, searchInfoText, records } = storeToRefs(searchStore)
+const { fetchRecent } = searchStore
 
-search.fetchRecent()
+fetchRecent()
 
 </script>
 
 <template>
     <div class="search-info-panel">
-        <span class="search-info-text">Loading</span>
-        <Loader class="loader" :fill="'var(--text-color)'" :width="'30rem'" :height="'30rem'" />
+        <span class="search-info-header">Search results</span><span>:</span>
+        <span class="search-info-text">{{ searchInfoText }}</span>
+        <div class="loader-container" v-if="isLoading">Loading...
+            <!-- <Loader :fill="'var(--text-color)'" :width="'30rem'" :height="'30rem'" /> -->
+        </div>
     </div>
     <div class="table-container">
         <table>
@@ -26,7 +31,7 @@ search.fetchRecent()
                 <th>MAF</th>
                 <th>Comments/Keywords</th>
             </tr>
-            <tr v-for="r in search.records" :id="r.id">
+            <tr v-for="r in records" :id="r.id">
                 <td>{{ r.year }}</td>
                 <td>{{ r.make }}</td>
                 <td>{{ r.model }}</td>
@@ -41,25 +46,39 @@ search.fetchRecent()
 </template>
 
 <style scoped>
+
+
+
+
+
+
 .table-container {
-    width: calc(100% - 20rem);
+    width: fit-content;
     overflow-x: scroll;
     margin: 10rem;
     border: 1px solid var(--table-border-color);
+    min-height: 140rem;
 }
 
 .search-info-panel {
     display: flex;
-    padding: 10rem 0rem 0rem 16rem;
+    align-items: center;
+    padding: 20rem 0rem 0rem 16rem;
+    white-space: pre;
+    font-size: 22rem;
+}
+
+.search-info-header {
+    text-decoration: underline;
 }
 
 .search-info-text {
-    display: inline-block;
-    padding-top: 2rem;
+    padding-left: 10rem;
 }
 
-.loader {
-    display: none;
+.loader-container {
+    width: 30rem;
+    height: 30rem;
 }
 
 table {

@@ -3,19 +3,19 @@
 import { useSaveFormStore } from '../../stores/save-form'
 import VehicleForm from '../vehicle/VehicleForm.vue'
 
-const saveForm = useSaveFormStore()
+const saveStore = useSaveFormStore()
 
 function save(form) {
-    saveForm.save(form)
+    saveStore.save(form)
 }
 
 </script>
 
 <template>
     <div class="save-container">
-        <div :class="[{ 'container-active': saveForm.isVisible }, 'accordian-container']">
-            <button :class="[{ 'btn-active': saveForm.isVisible }, 'accordian-btn']"
-                @click="saveForm.toggleVisibility($event)">{{ saveForm.isVisible ? 'Collapse' : 'Save Result' }}</button>
+        <div :class="[{ 'container-active': saveStore.isVisible }, 'accordian-container']">
+            <button :class="[{ 'btn-active': saveStore.isVisible }, 'accordian-btn']"
+                @click="saveStore.toggleVisibility($event)">{{ saveStore.isVisible ? 'Collapse' : 'Save Result' }}</button>
             <div class="accordian-panel">
                 <VehicleForm :isSave="true" @on-submit="save"/>
             </div>

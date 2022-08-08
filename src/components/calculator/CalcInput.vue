@@ -1,7 +1,7 @@
 <script setup>
 
 import { useCalculatorStore } from '@/stores/calculator.js'
-const calculator = useCalculatorStore()
+const calcStore = useCalculatorStore()
 
 const props = defineProps({
     name: String,
@@ -19,8 +19,8 @@ const props = defineProps({
 
 <template>
     <label :for="name">{{ label }}</label>
-    <input :id="name" :name="name" type="number" :min="min" :max="max" v-model="calculator[name]" step=".001"
-        @input="calculator.result = null" required />
+    <input :id="name" :name="name" type="number" :min="min" :max="max" v-model="calcStore[name]" step=".001"
+        @input="calcStore.result = null" required />
     <span>{{ units }}</span>
     <br :class="{ remove: !isLineBreak }">
 </template>

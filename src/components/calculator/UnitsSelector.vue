@@ -1,7 +1,7 @@
 <script setup>
 
 import { useCalculatorStore } from '@/stores/calculator'
-const calculator = useCalculatorStore()
+const calcStore = useCalculatorStore()
 
 const props = defineProps({
     name: String,
@@ -13,7 +13,7 @@ const props = defineProps({
 
 <template>
     <label :for="name" class="screen-reader-only">{{ label }}</label>
-    <select :name="name" :id="name" v-model="calculator[name]" @change="calculator.result = null">
+    <select :name="name" :id="name" v-model="calcStore[name]" @change="calcStore.result = null">
         <option v-for="choice in choices" :value="choice">{{ choice }}</option>
     </select>
     <br>
