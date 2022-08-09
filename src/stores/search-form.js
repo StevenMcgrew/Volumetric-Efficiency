@@ -24,7 +24,7 @@ export const useSearchFormStore = defineStore({
     },
     actions: {
         search(form) {
-            this.searchInfoText = 'Fetching records '
+            this.searchInfoText = 'fetching records...'
             this.isLoading = true
 
             let urlQuery = '?'
@@ -52,7 +52,7 @@ export const useSearchFormStore = defineStore({
         },
 
         fetchRecent() {
-            this.searchInfoText = 'Fetching records '
+            this.searchInfoText = 'fetching records...'
             this.isLoading = true
 
             fetch(`${url.calculations}?limit=20`)

@@ -1,22 +1,20 @@
 <script setup>
-import { storeToRefs } from 'pinia'
+
 import { useSearchFormStore } from '../../stores/search-form'
 import Loader from '../Loader.vue'
 
 const searchStore = useSearchFormStore()
-const { isLoading, searchInfoText, records } = storeToRefs(searchStore)
-const { fetchRecent } = searchStore
 
-fetchRecent()
+searchStore.fetchRecent()
 
 </script>
 
 <template>
     <div class="search-info-panel">
         <span class="search-info-header">Search results</span><span>:</span>
-        <span class="search-info-text">{{ searchInfoText }}</span>
-        <div class="loader-container" v-if="isLoading">Loading...
-            <!-- <Loader :fill="'var(--text-color)'" :width="'30rem'" :height="'30rem'" /> -->
+        <span class="search-info-text">{{ searchStore.searchInfoText }}</span>
+        <div class="loader-container" v-if="searchStore.isLoading">
+            <Loader :fill="'var(--text-color)'" :width="'30rem'" :height="'30rem'" />
         </div>
     </div>
     <div class="table-container">
@@ -31,7 +29,7 @@ fetchRecent()
                 <th>MAF</th>
                 <th>Comments/Keywords</th>
             </tr>
-            <tr v-for="r in records" :id="r.id">
+            <tr v-for="r in searchStore.records" :id="r.id">
                 <td>{{ r.year }}</td>
                 <td>{{ r.make }}</td>
                 <td>{{ r.model }}</td>
