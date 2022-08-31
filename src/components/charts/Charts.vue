@@ -1,13 +1,20 @@
 <script setup>
 
+import { useSearchFormStore } from '../../stores/search-form'
 import Chart from './Chart.vue'
+
+const searchStore = useSearchFormStore()
+
+let records = searchStore.records
+let veValues = records.map(r => Number(r.ve))
+let mafValues = records.map(r => r.mafUnits === 'kg/h' ? r.maf / 3.6 : Number(r.maf))
 
 </script>
 
 <template>
     <section class="charts-container">
-        <Chart title="VE chart (%)" />
-        <Chart title="MAF chart (g/s)" />
+        <Chart title="VE chart (%)" :chartData="veValues" />
+        <Chart title="MAF chart (g/s)" :chartData="mafValues" />
     </section>
 </template>
 

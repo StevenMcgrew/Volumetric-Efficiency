@@ -14,7 +14,7 @@ searchStore.fetchRecent()
         <span class="search-info-header">Search results</span><span>:</span>
         <span class="search-info-text">{{ searchStore.searchInfoText }}</span>
         <div class="loader-container" v-if="searchStore.isLoading">
-            <Loader :fill="'var(--text-color)'" :width="'30rem'" :height="'30rem'" />
+            <Loader fill="var(--text-color)" width="30rem" height="30rem" />
         </div>
     </div>
     <div class="table-container">

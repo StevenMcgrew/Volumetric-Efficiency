@@ -57,22 +57,22 @@ function createEngineOptions(min, max) {
 <template>
     <form @submit.prevent.stop="emit('on-submit', form)">
         <div class="form-section vehicle">
-            <VehicleSelector :id="`${submitText}Year`" :name="'year'" :label="'Year'"
+            <VehicleSelector :id="`${submitText}Year`" name="year" label="Year"
                              :choices="createYearOptions(1900, currentYear() + 2)" v-model="form.year" />
 
-            <VehicleSelector :id="`${submitText}Make`" :name="'make'" :label="'Make'"
+            <VehicleSelector :id="`${submitText}Make`" name="make" label="Make"
                              :choices="carMakes" v-model="form.make" />
 
-            <ModelInput :id="`${submitText}Model`" :name="'model'" :label="'Model'" v-model="form.model" />
+            <ModelInput :id="`${submitText}Model`" name="model" label="Model" v-model="form.model" />
 
-            <VehicleSelector :id="`${submitText}Engine`" :name="'engine'" :label="'Engine'"
+            <VehicleSelector :id="`${submitText}Engine`" name="engine" label="Engine"
                              :choices="createEngineOptions(0.1, 9.0)" v-model="form.engine" />
         </div>
         <div class="form-section">
             <ConditionRadBtns :ids="[`${submitText}Good`, `${submitText}Bad`, `${submitText}Unsure`]"
                               v-model="form.condition" />
 
-            <CommentsTextarea :id="`${submitText}Comments`" :name="'saveComments'" v-model="form.comments" />
+            <CommentsTextarea :id="`${submitText}Comments`" name="saveComments" v-model="form.comments" />
         </div>
         <div class="submit-container">
             <button type="submit">{{ submitText }}</button>
