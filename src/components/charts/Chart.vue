@@ -2,7 +2,12 @@
 
 const props = defineProps({
     title: String,
+    chartData: Array,
 })
+
+let data = props.charData.sort((a, b) => a - b)
+let grad1 = data[1]
+let grad5 = data[data.length - 1]
 
 </script>
 
@@ -18,11 +23,11 @@ const props = defineProps({
                 <div>|</div>
                 <div>|</div>
                 <div>|</div>
-                <div>0</div>
-                <div>25</div>
-                <div>50</div>
-                <div>75</div>
-                <div>100</div>
+                <div>{{ grad1 }}</div>
+                <div>{{ grad2 }}</div>
+                <div>{{ grad3 }}</div>
+                <div>{{ grad4 }}</div>
+                <div>{{ grad5 }}</div>
             </div>
         </div>
     </div>
