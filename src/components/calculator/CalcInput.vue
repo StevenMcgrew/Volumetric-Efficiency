@@ -7,8 +7,8 @@ const props = defineProps({
     name: String,
     label: String,
     units: String,
-    min: Number,
-    max: Number,
+    min: String,
+    max: String,
     isLineBreak: {
         default: true,
         type: Boolean,

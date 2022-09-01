@@ -12,6 +12,7 @@ export const useSearchFormStore = defineStore({
         records: [],
         searchInfoText: '',
         isLoading: false,
+        isVeChart: null,
         toastOptions: {
             type: 'danger',
             timeout: 10000,
