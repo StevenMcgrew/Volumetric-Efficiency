@@ -13,6 +13,7 @@ import Footer from './components/Footer.vue'
 </template>
 
 <style>
+
 @import url('https://fonts.googleapis.com/css2?family=Mukta+Malar&display=swap');
 
 :root {
@@ -94,4 +95,5 @@ button {
     border-radius: 8rem;
     box-shadow: 2rem 2rem 6px 0px var(--shadow-color);
 }
+
 </style>

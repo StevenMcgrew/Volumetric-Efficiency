@@ -50,6 +50,7 @@ searchStore.fetchRecent()
 
 
 
+
 .table-container {
     width: fit-content;
     overflow-x: scroll;
@@ -109,10 +110,13 @@ td:nth-of-type(7) {
 .Good {
     color: var(--good-indicator-color);
 }
+
 .Bad {
     color: var(--bad-indicator-color);
 }
+
 .Unsure {
     color: var(--unsure-indicator-color);
 }
+
 </style>
