@@ -43,7 +43,7 @@ export const useSearchFormStore = defineStore({
                                       else { return response.json() } })
                 .then((data) => {
                     this.records = data
-                    this.searchInfoText = `${this.records.length} records found for '${jsonToSearchInfo(form)}'`
+                    this.searchInfoText = `${this.records.length} records found for "${jsonToSearchInfo(form)}"`
                 })
                 .catch((error) => {
                     createToast(error.message, this.toastOptions)

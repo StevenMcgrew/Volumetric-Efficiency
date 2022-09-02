@@ -28,5 +28,5 @@ export function jsonToSearchInfo(json) {
     if (json.engine) { searchInfo += (json.engine + ' ') }
     if (json.condition) { searchInfo += (json.condition + ' ') }
     if (json.comments) { searchInfo += getFirstNumWords(json.comments, 3) }
-    return searchInfo
+    return searchInfo.trim()
 }

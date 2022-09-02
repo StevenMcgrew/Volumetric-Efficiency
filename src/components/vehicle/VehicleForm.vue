@@ -100,7 +100,7 @@ function resetFormVariable() {
 <style scoped>
 form {
     min-width: 300rem;
-    padding: 20rem;
+    padding: 0rem 20rem 20rem 20rem;
     margin: 0;
 }
 
@@ -109,7 +109,7 @@ form {
 }
 
 .vehicle {
-    padding: 9rem 20rem 5rem 0rem;
+    padding: 0rem 20rem 5rem 0rem;
     vertical-align: top;
 }
 

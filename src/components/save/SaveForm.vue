@@ -1,29 +1,29 @@
 <script setup>
-
 import { useSaveFormStore } from '../../stores/save-form'
 import VehicleForm from '../vehicle/VehicleForm.vue'
-
 const saveStore = useSaveFormStore()
-
 function save(form) {
     saveStore.save(form)
 }
-
 </script>
 
 <template>
     <div class="save-container">
         <div :class="[{ 'container-active': saveStore.isVisible }, 'accordian-container']">
             <button :class="[{ 'btn-active': saveStore.isVisible }, 'accordian-btn']"
-                @click="saveStore.toggleVisibility($event)">{{ saveStore.isVisible ? 'Collapse' : 'Save Result' }}</button>
+                    @click="saveStore.toggleVisibility($event)">{{ saveStore.isVisible ? 'Collapse' : 'Save Result'}}
+            </button>
             <div class="accordian-panel">
-                <VehicleForm :isSave="true" @on-submit="save"/>
+                <h2>Save</h2>
+                <VehicleForm :isSave="true" @on-submit="save" />
             </div>
         </div>
     </div>
 </template>
 
 <style scoped>
+
+
 .save-container {
     padding: 10rem;
     width: 320rem;
@@ -43,7 +43,7 @@ function save(form) {
 }
 
 .accordian-btn::after {
-    /* Unicode character for "plus" sign (+) */
+    /* Unicode character */
     content: '\25BC';
     font-size: 13px;
     padding: 4rem 0rem 0rem 10rem;
@@ -58,7 +58,7 @@ function save(form) {
 }
 
 .btn-active::after {
-    /* Unicode character for "minus" sign (-) */
+    /* Unicode character */
     content: "\25B2";
     box-shadow: none;
 }
@@ -68,5 +68,10 @@ function save(form) {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.5s ease-out;
+}
+
+h2 {
+    margin: 0 auto 4rem auto;
+    width: fit-content;
 }
 </style>
