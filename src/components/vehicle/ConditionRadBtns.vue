@@ -39,10 +39,12 @@ function radBtnClicked(e) {
 </template>
 
 <style scoped>
+
 fieldset {
     border: 1rem solid #767676;
-    margin: 4rem 0rem 5rem 0rem;
+    margin: 0rem 0rem 5rem 0rem;
     border-radius: 2rem;
+    padding-top: 0;
 }
 
 input {

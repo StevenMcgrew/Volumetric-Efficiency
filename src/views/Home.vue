@@ -34,7 +34,8 @@ main {
     display: grid;
     grid-template-rows: auto;
     grid-template-columns: 340rem auto;
-    grid-template-areas: "thin wide";
+    grid-template-areas: "thin wide"
+                         "lower .";
     justify-items: center;
     padding-right: 12rem;
 }
@@ -64,6 +65,26 @@ main {
     .comp-container {
         display: flex;
         justify-content: center;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .wide {
+        grid-area: lower;
+        min-width: 340rem;
+        max-width: 660rem;
+        margin: 20rem auto;
+    }
+
+    main {
+        grid-template-columns: auto 0;
+        padding: 0;
+    }
+}
+
+@media only screen and (max-width: 660px) {
+    .wide {
+        border-radius: 0;
     }
 }
 </style>

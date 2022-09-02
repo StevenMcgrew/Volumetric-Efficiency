@@ -11,8 +11,10 @@ searchStore.fetchRecent()
 
 <template>
     <div class="search-info-panel">
-        <span class="search-info-header">Search results</span><span>:</span>
-        <span class="search-info-text">{{ searchStore.searchInfoText }}</span>
+        <div class="search-info-header-container">
+            <span class="search-info-header">Search results</span><span>:</span>
+            <span class="search-info-text">{{ searchStore.searchInfoText }}</span>
+        </div>
         <div class="loader-container" v-if="searchStore.isLoading">
             <Loader fill="var(--text-color)" width="30rem" height="30rem" />
         </div>
@@ -27,7 +29,7 @@ searchStore.fetchRecent()
                 <th>Condition</th>
                 <th>VE</th>
                 <th>MAF</th>
-                <th>Comments/Keywords</th>
+                <th class="last-column">Comments/Keywords</th>
             </tr>
             <tr v-for="r in searchStore.records" :id="r.id">
                 <td>{{ r.year }}</td>
@@ -46,13 +48,11 @@ searchStore.fetchRecent()
 <style scoped>
 
 
-
-
-
-
+.last-column {
+    width: 100%;
+}
 
 .table-container {
-    width: fit-content;
     overflow-x: scroll;
     margin: 10rem;
     border: 1px solid var(--table-border-color);
@@ -67,13 +67,19 @@ searchStore.fetchRecent()
     font-size: 22rem;
 }
 
+.search-info-header-container {
+    display: inline-block;
+}
+
 .search-info-header {
     text-decoration: underline;
 }
 
 .search-info-text {
     padding-left: 10rem;
-}
+    white-space: pre-wrap;
+    font-family: Arial, sans-serif;
+    font-size: 18rem;}
 
 .loader-container {
     width: 30rem;
