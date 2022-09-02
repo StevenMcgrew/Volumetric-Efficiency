@@ -99,9 +99,14 @@ watch(records, () => {
         <p>{{ title }}</p>
         <div class="chart">
             <div v-for="point in dataPoints"
-                        class="data-point"
-                        :class="point.condition"
-                        :style="{ left: point.val + '%' }">
+                 class="data-point"
+                 :class="point.condition"
+                 :style="{ left: point.val + '%' }">
+            </div>
+            <div v-for="point in dataPoints"
+                 class="data-point"
+                 :class="`${point.condition}-plain`"
+                 :style="{ left: point.val + '%' }">
             </div>
         </div>
         <div class="scale-container">
@@ -118,6 +123,7 @@ watch(records, () => {
 </template>
 
 <style scoped>
+
 
 .chart-container {}
 
@@ -161,18 +167,30 @@ p {
 }
 
 .Good {
-    background-color: green;
-    box-shadow: 0px 0px 8px 4px lime;
+    background-color: lime;
+    box-shadow: 0px 0px 8px 3px lime;
 }
 
 .Bad {
-    background-color: rgb(145, 0, 0);
-    box-shadow: 0px 0px 8px 4px rgb(255, 0, 0);
+    background-color: red;
+    box-shadow: 0px 0px 8px 3px red;
 }
 
 .Unsure {
-    background-color: rgb(158, 164, 0);
-    box-shadow: 0px 0px 8px 4px rgb(246, 255, 0);
+    background-color: yellow;
+    box-shadow: 0px 0px 8px 3px yellow;
+}
+
+.Good-plain {
+    background-color: lime;
+}
+
+.Bad-plain {
+    background-color: red;
+}
+
+.Unsure-plain {
+    background-color: yellow;
 }
 
 </style>
