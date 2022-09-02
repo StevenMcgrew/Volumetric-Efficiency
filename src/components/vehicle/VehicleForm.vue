@@ -4,20 +4,21 @@ import VehicleSelector from './VehicleSelector.vue'
 import ModelInput from './ModelInput.vue'
 import ConditionRadBtns from './ConditionRadBtns.vue'
 import CommentsTextarea from './CommentsTextarea.vue'
+import { ref } from 'vue'
 
 const props = defineProps({
     isSave: Boolean,
 })
 const emit = defineEmits(['on-submit'])
 const submitText = (() => props.isSave ? 'save' : 'search')()
-const form = {
+const form = ref({
     year: '',
     make: '',
     model: '',
     engine: '',
     condition: '',
     comments: '',
-}
+})
 
 function currentYear() {
     let date = new Date()
@@ -52,11 +53,26 @@ function createEngineOptions(min, max) {
     return engineSizes
 }
 
+function resetFormVariable() {
+    form.value = {
+        year: '',
+        make: '',
+        model: '',
+        engine: '',
+        condition: '',
+        comments: '',
+    }
+}
+
 </script>
 
 <template>
-    <form @submit.prevent.stop="emit('on-submit', form)">
+    <form @submit.prevent.stop="emit('on-submit', form)"
+          @reset="resetFormVariable">
         <div class="form-section vehicle">
+
+            <!-- v-model on a component passes modelValue as a prop, and update:modelValue is the event to update it (see the components for the events) -->
+
             <VehicleSelector :id="`${submitText}Year`" name="year" label="Year"
                              :choices="createYearOptions(1900, currentYear() + 2)" v-model="form.year" />
 
@@ -72,7 +88,7 @@ function createEngineOptions(min, max) {
             <ConditionRadBtns :ids="[`${submitText}Good`, `${submitText}Bad`, `${submitText}Unsure`]"
                               v-model="form.condition" />
 
-            <CommentsTextarea :id="`${submitText}Comments`" name="saveComments" v-model="form.comments" />
+            <CommentsTextarea :id="`${submitText}Comments`" name="comments" v-model="form.comments" />
         </div>
         <div class="submit-container">
             <button type="submit">{{ submitText }}</button>
