@@ -12,6 +12,7 @@ function radBtnClicked(e) {
     if (e.target.value === storedChoice) {
         e.target.checked = false
         storedChoice = ''
+        emit('update:modelValue', '')
     }
     else {
         emit('update:modelValue', e.target.value)
