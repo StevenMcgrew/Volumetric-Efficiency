@@ -24,7 +24,7 @@ import Footer from './components/Footer.vue'
     --shadow-color: gray;
     --table-border-color: #8e8e8e;
     --th-background-color: #cecece;
-    --chart-background-color: black;
+    --chart-border-color: black;
     --good-indicator-color: #008900;
     --bad-indicator-color: #e22020;
     --unsure-indicator-color: #bbbb21;
