@@ -11,7 +11,7 @@ const props = defineProps({
     isVeChart: Boolean,
 })
 
-let spacerWidth = 10
+let spacerWidth = 20
 
 const grads = ref([])
 const points = ref([])
@@ -51,9 +51,7 @@ function setVeValues(records) {
 
 function setMafValues(records) {
     let vals = records.map(r => {
-        let mafVal = r.mafUnits === 'kg/h' ?
-            r.maf / 3.6 :
-            Number(r.maf)
+        let mafVal = r.maf_units === 'kg/h' ? r.maf / 3.6 : Number(r.maf)
         return {
             condition: r.condition,
             val: mafVal
@@ -63,15 +61,18 @@ function setMafValues(records) {
 }
 
 function setDataPoints(array) {
-    let min = array[0].val < spacerWidth ? 0 : array[0].val - spacerWidth
-    let max = array[array.length - 1].val + spacerWidth
-    let range = max - min
+    if (array.length) {
+        let min = array[0].val < spacerWidth ? 0 : array[0].val - spacerWidth
+        let max = array[array.length - 1].val + spacerWidth
+        let range = max - min
 
-    let pnts = array.map(obj => {
-        let percentVal = ((obj.val - min) / range) * 100
-        return { ...obj, val: percentVal }
-    })
-    return pnts
+        let pnts = array.map(obj => {
+            let percentVal = ((obj.val - min) / range) * 100
+            return { ...obj, val: percentVal }
+        })
+        return pnts
+    }
+    return []
 }
 
 watch(records, () => {
@@ -118,8 +119,6 @@ watch(records, () => {
 
 <style scoped>
 
-
-
 .chart-container {}
 
 p {
@@ -130,16 +129,17 @@ p {
 .chart {
     position: relative;
     width: 300rem;
-    background-color: var(--light-gray);
-    border: 1px solid var(--text-color);
+    background-color: var(--chart-border-color);
+    border: 1px solid var(--chart-border-color);
     height: 50rem;
     margin: 0 auto;
+    overflow: hidden;
 }
 
 .data-point {
     display: inline-block;
     position: absolute;
-    width: 3rem;
+    width: 2rem;
     height: 100%;
 }
 
@@ -161,15 +161,18 @@ p {
 }
 
 .Good {
-    background-color: var(--good-indicator-color);
+    background-color: green;
+    box-shadow: 0px 0px 8px 4px lime;
 }
 
 .Bad {
-    background-color: var(--bad-indicator-color);
+    background-color: rgb(145, 0, 0);
+    box-shadow: 0px 0px 8px 4px rgb(255, 0, 0);
 }
 
 .Unsure {
-    background-color: var(--unsure-indicator-color);
+    background-color: rgb(158, 164, 0);
+    box-shadow: 0px 0px 8px 4px rgb(246, 255, 0);
 }
 
 </style>
