@@ -28,6 +28,7 @@ import Footer from './components/Footer.vue'
     --good-indicator-color: #008900;
     --bad-indicator-color: #e22020;
     --unsure-indicator-color: #bbbb21;
+    --current-indicator-color: white;
 }
 
 *,

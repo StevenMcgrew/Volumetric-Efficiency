@@ -195,6 +195,6 @@ p {
 }
 
 .Current {
-    background-color: white;
+    background-color: var(--current-indicator-color);
 }
 </style>
