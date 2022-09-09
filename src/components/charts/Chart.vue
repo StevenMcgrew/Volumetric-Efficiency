@@ -1,9 +1,12 @@
 <script setup>
 import { useSearchFormStore } from '../../stores/search-form'
+import { useCalculatorStore } from '../../stores/calculator'
 import { storeToRefs } from 'pinia'
 import { watch, ref, computed } from 'vue'
 
 const searchStore = useSearchFormStore()
+const calcStore = useCalculatorStore()
+
 const { records } = storeToRefs(searchStore)
 
 const props = defineProps({
@@ -21,7 +24,9 @@ const dataPoints = computed(() => points.value)
 
 function setChartGraduations(array) {
     if (array.length) {
-        let grad1 = array[0].val < spacerWidth ? 0 : array[0].val - spacerWidth
+        let grad1 = array[0].val < spacerWidth ?
+                    0 :
+                    array[0].val - spacerWidth
 
         let grad5 = array[array.length - 1].val + spacerWidth
 
@@ -51,7 +56,9 @@ function setVeValues(records) {
 
 function setMafValues(records) {
     let vals = records.map(r => {
-        let mafVal = r.maf_units === 'kg/h' ? r.maf / 3.6 : Number(r.maf)
+        let mafVal = r.maf_units === 'kg/h' ?
+                     r.maf / 3.6 :
+                     Number(r.maf)
         return {
             condition: r.condition,
             val: mafVal
@@ -66,25 +73,41 @@ function setDataPoints(array) {
         let max = array[array.length - 1].val + spacerWidth
         let range = max - min
 
+        let current = null
         let pnts = array.map(obj => {
             let percentVal = ((obj.val - min) / range) * 100
-            return { ...obj, val: percentVal }
+            let newObj = { ...obj, val: percentVal }
+            if (newObj.condition === 'Current') { current = newObj }
+            return newObj
         })
+
+        if (current) { pnts.push(current) }
         return pnts
     }
     return []
 }
 
 watch(records, () => {
+    let _records = [...records.value]
+    // If calculator has a current result, add it to _records
+    if (calcStore.ve && calcStore.maf) {
+        _records.push({
+            maf: calcStore.maf,
+            maf_units: calcStore.mafUnits,
+            ve: calcStore.ve,
+            condition: 'Current'
+        })
+    }
+    // Update values for charts based on records
     if (props.isVeChart === true) {
-        let vals = setVeValues(records.value)
+        let vals = setVeValues(_records)
         let arr = setChartGraduations(vals)
         grads.value = arr
         let pnts = setDataPoints(vals)
         points.value = pnts
     }
     else if (props.isVeChart === false) {
-        let vals = setMafValues(records.value)
+        let vals = setMafValues(_records)
         let arr = setChartGraduations(vals)
         grads.value = arr
         let pnts = setDataPoints(vals)
@@ -103,11 +126,6 @@ watch(records, () => {
                  :class="point.condition"
                  :style="{ left: point.val + '%' }">
             </div>
-            <div v-for="point in dataPoints"
-                 class="data-point"
-                 :class="`${point.condition}-plain`"
-                 :style="{ left: point.val + '%' }">
-            </div>
         </div>
         <div class="scale-container">
             <div class="scale">
@@ -123,8 +141,6 @@ watch(records, () => {
 </template>
 
 <style scoped>
-
-
 .chart-container {}
 
 p {
@@ -167,30 +183,18 @@ p {
 }
 
 .Good {
-    background-color: lime;
-    box-shadow: 0px 0px 8px 3px lime;
+    background-color: var(--good-indicator-color);
 }
 
 .Bad {
-    background-color: red;
-    box-shadow: 0px 0px 8px 3px red;
+    background-color: var(--bad-indicator-color);
 }
 
 .Unsure {
-    background-color: yellow;
-    box-shadow: 0px 0px 8px 3px yellow;
+    background-color: var(--unsure-indicator-color);
 }
 
-.Good-plain {
-    background-color: lime;
+.Current {
+    background-color: white;
 }
-
-.Bad-plain {
-    background-color: red;
-}
-
-.Unsure-plain {
-    background-color: yellow;
-}
-
 </style>
