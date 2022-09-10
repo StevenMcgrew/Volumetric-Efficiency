@@ -1,11 +1,26 @@
 <script setup>
 
+import RecordDetails from './RecordDetails.vue'
 import { useSearchFormStore } from '../../stores/search-form'
 import Loader from '../Loader.vue'
+import { createToast, withProps } from 'mosha-vue-toastify'
+import 'mosha-vue-toastify/dist/style.css'
 
 const searchStore = useSearchFormStore()
 
 searchStore.fetchRecent()
+
+function popupRecordData(e) {
+    let i = e.currentTarget.dataset.index
+    let data = searchStore.records[i]
+    let toastOptions = {
+        type: 'info',
+        timeout: 20000,
+        position: 'bottom-center',
+        toastBackgroundColor: '#bad9ff',
+    }
+    createToast(withProps(RecordDetails, { record: data }), toastOptions)
+}
 
 </script>
 
@@ -31,7 +46,7 @@ searchStore.fetchRecent()
                 <th>MAF</th>
                 <th class="last-column">Comments/Keywords</th>
             </tr>
-            <tr v-for="r in searchStore.records" :id="r.id">
+            <tr v-for="(r, index) in searchStore.records" :id="r.id" :data-index="index" @click="popupRecordData">
                 <td>{{ r.year }}</td>
                 <td>{{ r.make }}</td>
                 <td>{{ r.model }}</td>
@@ -111,6 +126,14 @@ td {
 td:nth-of-type(6),
 td:nth-of-type(7) {
     text-align: right;
+}
+
+tr {
+    cursor: pointer;
+}
+
+tr:hover {
+    background-color: var(--record-hover-color);
 }
 
 .Good {
