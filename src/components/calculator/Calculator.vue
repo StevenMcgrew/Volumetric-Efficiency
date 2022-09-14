@@ -13,6 +13,12 @@ function onReset() {
     calcStore.customReset()
 }
 
+calcStore.loadStateFromLocalStorage()
+
+calcStore.$subscribe((mutation, state) => {
+    localStorage.setItem('calculatorState', JSON.stringify(state))
+})
+
 </script>
 
 <template>
