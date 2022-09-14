@@ -66,5 +66,12 @@ export const useCalculatorStore = defineStore({
         getTheoreticalMAF(engLiters, gramsPerLiter, rpm) {
             return (engLiters * gramsPerLiter * rpm * 0.5) / 60
         },
+        loadStateFromLocalStorage() {
+            if (localStorage.getItem('calculatorState')) {
+                let calculatorState = JSON.parse(localStorage.getItem('calculatorState'))
+                let entries = Object.entries(calculatorState)
+                entries.forEach(entry => this.$state[entry[0]] = entry[1])
+            }
+        },
     }
 })
