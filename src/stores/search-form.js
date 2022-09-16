@@ -44,6 +44,7 @@ export const useSearchFormStore = defineStore({
                 .then((data) => {
                     this.records = data
                     this.searchInfoText = `${this.records.length} records found for "${jsonToSearchInfo(form)}"`
+                    this.scrollIfNeeded()
                 })
                 .catch((error) => {
                     createToast(error.message, this.toastOptions)
@@ -69,5 +70,11 @@ export const useSearchFormStore = defineStore({
                 })
                 .finally(this.isLoading = false)
         },
+
+        scrollIfNeeded() {
+            if (document.documentElement.clientWidth < 916) {
+                document.getElementById('chartsContainer').scrollIntoView()
+            }
+        }
     }
 })

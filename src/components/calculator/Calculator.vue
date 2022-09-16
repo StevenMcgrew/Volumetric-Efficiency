@@ -51,11 +51,11 @@ calcStore.$subscribe((mutation, state) => {
 </template>
 
 <style scoped>
-
-
+    
 form {
     min-width: 300rem;
     padding: 7rem 20rem 20rem 20rem;
+    background-color: var(--card-color);
 }
 
 h2 {
@@ -86,6 +86,7 @@ output {
     vertical-align: middle;
     text-align: right;
     border: 1px solid var(--light-gray);
+    background-color: var(--background-color);
     border-radius: 3rem;
     font-family: sans-serif;
     font-size: 14rem;

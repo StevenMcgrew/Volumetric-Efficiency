@@ -52,7 +52,7 @@ function save(form) {
 .btn-active {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
-    background-color: var(--background-color);
+    background-color: var(--card-color);
     color: var(--primary-color);
     box-shadow: none;
 }
@@ -68,10 +68,12 @@ function save(form) {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.5s ease-out;
+    background-color: var(--card-color);
 }
 
 h2 {
     margin: 0 auto 4rem auto;
     width: fit-content;
 }
+
 </style>

@@ -5,7 +5,7 @@ import Chart from './Chart.vue'
 </script>
 
 <template>
-    <section class="charts-container">
+    <section id="chartsContainer" class="charts-container">
         <Chart title="VE chart (%)" :isVeChart="true" />
         <Chart title="MAF chart (g/s)" :isVeChart="false" />
         <div class="color-key-container">
@@ -26,6 +26,7 @@ import Chart from './Chart.vue'
 .charts-container {
     vertical-align: top;
     border: 1px solid var(--table-border-color);
+    background-color: var(--background-color);
     padding: 10rem 0rem;
     border-radius: 3rem;
     margin-top: 20rem;
