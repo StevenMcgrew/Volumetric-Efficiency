@@ -29,6 +29,7 @@ import Footer from './components/Footer.vue'
     --unsure-indicator-color: #bbbb21;
     --current-indicator-color: white;
     --record-hover-color: #bad9ff;
+    --card-color: #f2f2f2;
 }
 
 *,
@@ -39,6 +40,7 @@ import Footer from './components/Footer.vue'
 
 html {
     font-size: 0.0625rem;
+    scroll-behavior: smooth;
 }
 
 body {

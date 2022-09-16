@@ -19,7 +19,6 @@ function search(form) {
 </template>
 
 <style scoped>
-
 .search-container {
     max-width: 538rem;
 }
@@ -29,9 +28,17 @@ h2 {
     width: fit-content;
 }
 
-@media only screen and (max-width: 913px) {
+@media only screen and (max-width: 889px) {
     .search-container {
         width: 300rem;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .search-container {
+        background-color: var(--card-color);
+        border-radius: 8rem;
+        box-shadow: 2rem 2rem 6px 0px var(--shadow-color);
     }
 }
 </style>

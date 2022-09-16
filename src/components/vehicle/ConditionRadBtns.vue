@@ -24,7 +24,7 @@ function radBtnClicked(e) {
 
 <template>
     <fieldset>
-        <legend>Condition:</legend>
+        <legend>Condition</legend>
 
         <input type="radio" :id="ids[0]" name="condition" value="Good" @click="radBtnClicked($event)">
         <label :for="ids[0]">Good</label>

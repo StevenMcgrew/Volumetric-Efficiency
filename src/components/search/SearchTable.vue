@@ -61,8 +61,6 @@ function popupRecordData(e) {
 </template>
 
 <style scoped>
-
-
 .last-column {
     width: 100%;
 }
@@ -103,6 +101,7 @@ function popupRecordData(e) {
 
 table {
     border-collapse: collapse;
+    background-color: var(--background-color);
 }
 
 td,
@@ -147,5 +146,4 @@ tr:hover {
 .Unsure {
     color: var(--unsure-indicator-color);
 }
-
 </style>

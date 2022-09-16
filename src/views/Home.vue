@@ -27,9 +27,6 @@ import Charts from '../components/charts/Charts.vue'
 </template>
 
 <style scoped>
-
-
-
 main {
     display: grid;
     grid-template-rows: auto;
@@ -55,6 +52,7 @@ main {
     width: 100%;
     margin-top: 10rem;
     height: max-content;
+    background-color: var(--card-color);
 }
 
 .comp-container {
@@ -74,6 +72,8 @@ main {
         min-width: 340rem;
         max-width: 660rem;
         margin: 20rem auto;
+        background-color: var(--background-color);
+        box-shadow: none;
     }
 
     main {
