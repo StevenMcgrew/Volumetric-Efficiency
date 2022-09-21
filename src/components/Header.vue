@@ -76,6 +76,7 @@ menu {
 
 .menuvisible {
     box-shadow: 0rem 0rem 20rem 1px #cdcdcd;
+    background-color: white;
 }
 
 .ribbon-nav {

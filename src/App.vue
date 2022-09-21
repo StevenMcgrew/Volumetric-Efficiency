@@ -39,7 +39,8 @@ import Footer from './components/Footer.vue'
 }
 
 html {
-    font-size: 0.0625rem;
+    -webkit-text-size-adjust: none;
+    font-size: 1px;
     scroll-behavior: smooth;
 }
 
@@ -71,6 +72,8 @@ input {
     height: 32rem;
     color: inherit;
     font-size: 14rem;
+    border: 1px solid var(--light-gray);
+    border-radius: 3rem;
 }
 
 #app {
