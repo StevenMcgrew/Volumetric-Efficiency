@@ -28,7 +28,7 @@ h2 {
     width: fit-content;
 }
 
-@media only screen and (max-width: 889px) {
+@media only screen and (max-width: 905px) {
     .search-container {
         width: 300rem;
     }

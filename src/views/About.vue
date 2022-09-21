@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <div class="about-page-container">
+    <div class="about-page-container card">
         <h2>About</h2>
         <h3>What is volumetric efficiency?</h3>
         <p>
@@ -74,11 +74,14 @@
 </template>
 
 <style scoped>
+h2 {
+    margin-top: 0;
+}
 
 .about-page-container {
     max-width: 80ch;
-    padding: 0rem 20rem;
-    margin: 0 auto;
+    padding: 20rem 30rem;
+    margin: 20rem auto;
+    background-color: white;
 }
-
 </style>

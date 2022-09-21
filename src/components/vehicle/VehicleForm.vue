@@ -100,7 +100,7 @@ function resetFormVariable() {
 <style scoped>
 form {
     min-width: 300rem;
-    padding: 0rem 20rem 20rem 20rem;
+    padding: 0rem 18rem 20rem 18rem;
     margin: 0;
 }
 

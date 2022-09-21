@@ -101,7 +101,6 @@ function popupRecordData(e) {
 
 table {
     border-collapse: collapse;
-    background-color: var(--background-color);
 }
 
 td,
