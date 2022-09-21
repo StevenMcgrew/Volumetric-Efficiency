@@ -28,5 +28,6 @@ label {
 input {
     width: 150rem;
     font-size: 14rem;
+    padding-left: 4rem;
 }
 </style>

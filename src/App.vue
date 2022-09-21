@@ -18,7 +18,7 @@ import Footer from './components/Footer.vue'
 :root {
     --primary-color: #3781dd;
     --text-color: #3a3a3a;
-    --background-color: #fefefe;
+    --background-color: #f2f2f2;
     --light-gray: #767676;
     --shadow-color: gray;
     --table-border-color: #8e8e8e;
@@ -29,7 +29,7 @@ import Footer from './components/Footer.vue'
     --unsure-indicator-color: #bbbb21;
     --current-indicator-color: white;
     --record-hover-color: #bad9ff;
-    --card-color: #f2f2f2;
+    --card-color: #ffffff;
 }
 
 *,
@@ -88,7 +88,7 @@ button {
     box-shadow: 1px 1px 7px -4px black;
     border-radius: 4rem;
     background-color: var(--primary-color);
-    color: var(--background-color);
+    color: white;
     padding: 7px 15px 6px 15px;
     cursor: pointer;
     text-transform: uppercase;
@@ -97,5 +97,27 @@ button {
 .card {
     border-radius: 8rem;
     box-shadow: 2rem 2rem 6px 0px var(--shadow-color);
+}
+
+select {
+    width: 100%;
+    padding: 5rem 16rem 5rem 5rem;
+    color: var(--text-color);
+    background-color: #fff;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+    border: 1px solid var(--light-gray);
+    border-radius: 3rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    word-wrap: normal;
+    text-transform: none;
+    margin: 0;
+    font-size: 14rem;
+    font-family: sans-serif;
 }
 </style>

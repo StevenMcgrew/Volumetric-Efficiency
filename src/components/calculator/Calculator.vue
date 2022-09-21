@@ -86,7 +86,7 @@ output {
     vertical-align: middle;
     text-align: right;
     border: 1px solid var(--light-gray);
-    background-color: var(--background-color);
+    background-color: white;
     border-radius: 3rem;
     font-family: sans-serif;
     font-size: 14rem;

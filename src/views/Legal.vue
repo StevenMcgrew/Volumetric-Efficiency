@@ -205,5 +205,6 @@ ul {
     top: -3rem;
     border-bottom-left-radius: 4rem;
     border-bottom-right-radius: 4rem;
+    background-color: white;
 }
 </style>

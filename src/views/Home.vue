@@ -59,7 +59,7 @@ main {
     display: inline-block;
 }
 
-@media only screen and (max-width: 1260px) {
+@media only screen and (max-width: 1278px) {
     .comp-container {
         display: flex;
         justify-content: center;

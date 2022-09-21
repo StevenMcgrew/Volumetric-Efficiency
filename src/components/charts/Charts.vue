@@ -26,7 +26,6 @@ import Chart from './Chart.vue'
 .charts-container {
     vertical-align: top;
     border: 1px solid var(--table-border-color);
-    background-color: var(--background-color);
     padding: 10rem 0rem;
     border-radius: 3rem;
     margin-top: 20rem;
