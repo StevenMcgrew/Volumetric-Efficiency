@@ -7,6 +7,7 @@ const props = defineProps({
 </script>
 
 <template>
+    <p>{{ record.year }} {{ record.make }} {{ record.model }} {{ record.engine }}</p>
     <table>
         <tbody>
             <tr>
@@ -48,6 +49,9 @@ const props = defineProps({
 </template>
 
 <style scoped>
+p {
+    font-family: arial, sans-serif;
+}
 .value-cells {
     text-align: right;
 }
@@ -60,6 +64,7 @@ table {
     border-spacing: 0;
     font-family: arial, sans-serif;
     font-size: 14rem;
+    background-color: white;
 }
 
 td {

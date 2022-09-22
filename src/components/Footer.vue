@@ -4,12 +4,14 @@
 
 <template>
     <footer>
-        2022 Steve Mcgrew
+        <span>
+            &copy; 2022 Steven Mcgrew
+        </span>
     </footer>
 </template>
 
 <style scoped>
 footer {
-    min-height: 60rem;
+    padding: 60rem 10rem 5rem 10rem;
 }
 </style>

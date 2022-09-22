@@ -89,7 +89,7 @@ a {
     padding: 0rem 20rem;
 }
 
-@media only screen and (max-width: 590px) {
+@media only screen and (max-width: 600px) {
     .ribbon-nav {
         display: none;
     }

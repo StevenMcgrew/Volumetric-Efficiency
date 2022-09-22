@@ -15,9 +15,11 @@ function popupRecordData(e) {
     let data = searchStore.records[i]
     let toastOptions = {
         type: 'info',
-        timeout: 20000,
+        timeout: 400000,
         position: 'bottom-center',
         toastBackgroundColor: '#bad9ff',
+        showIcon: true,
+        transition: 'slide',
     }
     createToast(withProps(RecordDetails, { record: data }), toastOptions)
 }
