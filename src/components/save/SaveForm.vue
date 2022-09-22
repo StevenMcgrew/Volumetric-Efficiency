@@ -69,6 +69,7 @@ function save(form) {
     overflow: hidden;
     transition: max-height 0.5s ease-out;
     background-color: var(--card-color);
+    border-radius: 4rem;
 }
 
 h2 {
