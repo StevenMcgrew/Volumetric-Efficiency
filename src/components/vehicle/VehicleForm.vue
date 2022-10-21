@@ -95,7 +95,7 @@ function resetFormVariable() {
             <button type="reset">Reset</button>
             <div v-if="isSave">
                 <p>*Saves to public database</p>
-                <p>See <a href="/Volumetric-Efficiency/legal">Terms of Service</a></p>
+                <p>See <router-link to="/legal">Terms of Service</router-link></p>
             </div>
         </div>
     </form>

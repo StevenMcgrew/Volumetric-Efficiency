@@ -21,7 +21,7 @@ function save(form) {
     </div>
     <div class="how-to-container">
         <img src="/icons8-inquiry-48.png" alt="puzzled person">
-        <a href="/Volumetric-Efficiency/about">How to use this app</a>
+        <router-link to="/about">How to use this app</router-link>
     </div>
 </template>
 
