@@ -25,8 +25,8 @@ const dataPoints = computed(() => points.value)
 function setChartGraduations(array) {
     if (array.length) {
         let grad1 = array[0].val < spacerWidth ?
-                    0 :
-                    array[0].val - spacerWidth
+            0 :
+            array[0].val - spacerWidth
 
         let grad5 = array[array.length - 1].val + spacerWidth
 
@@ -37,10 +37,10 @@ function setChartGraduations(array) {
         let grad4 = grad3 + incrementAmount
 
         return [Math.round(grad1),
-                Math.round(grad2),
-                Math.round(grad3),
-                Math.round(grad4),
-                Math.round(grad5)]
+        Math.round(grad2),
+        Math.round(grad3),
+        Math.round(grad4),
+        Math.round(grad5)]
     }
 }
 
@@ -56,9 +56,13 @@ function setVeValues(records) {
 
 function setMafValues(records) {
     let vals = records.map(r => {
-        let mafVal = r.maf_units === 'kg/h' ?
-                     r.maf / 3.6 :
-                     Number(r.maf)
+        let mafVal
+        if (r.maf_units === 'kg/h') {
+            mafVal = r.maf / 3.6
+        }
+        else {
+            mafVal = Number(r.maf)
+        }
         return {
             condition: r.condition,
             val: mafVal

@@ -93,6 +93,10 @@ function resetFormVariable() {
         <div class="submit-container">
             <button type="submit">{{ submitText }}</button>
             <button type="reset">Reset</button>
+            <div v-if="isSave">
+                <p>*Saves to public database</p>
+                <p>See <a href="/Volumetric-Efficiency/legal">Terms of Service</a></p>
+            </div>
         </div>
     </form>
 </template>
@@ -117,8 +121,23 @@ form {
     text-align: center;
 }
 
-.submit-container>button {
+.submit-container > button {
     margin: 10rem 5rem 0rem 5rem;
     width: 110rem;
+}
+
+.submit-container > div {
+    margin-top: 10rem;
+}
+
+.submit-container > div > p {
+    margin: 0;
+    font-size: 14rem;
+    line-height: 14rem;
+}
+
+.submit-container > div > p > a{
+    text-decoration: underline;
+    color: var(--primary-color);
 }
 </style>

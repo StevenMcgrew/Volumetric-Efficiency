@@ -19,6 +19,10 @@ function save(form) {
             </div>
         </div>
     </div>
+    <div class="how-to-container">
+        <img src="/icons8-inquiry-48.png" alt="puzzled person">
+        <a href="/Volumetric-Efficiency/about">How to use this app</a>
+    </div>
 </template>
 
 <style scoped>
@@ -75,6 +79,17 @@ function save(form) {
 h2 {
     margin: 0 auto 4rem auto;
     width: fit-content;
+}
+
+.how-to-container {
+    display: flex;
+    align-items: center;
+    padding-top: 22px;
+}
+
+a {
+    text-decoration: underline;
+    color: var(--primary-color);
 }
 
 </style>
