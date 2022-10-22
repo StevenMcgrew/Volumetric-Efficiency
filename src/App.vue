@@ -101,6 +101,10 @@ button {
     text-transform: uppercase;
 }
 
+button:active {
+    transform: scale(.95);
+}
+
 .card {
     border-radius: 8rem;
     box-shadow: 2rem 2rem 6px 0px var(--shadow-color);

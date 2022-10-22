@@ -1,7 +1,8 @@
 import { defineStore } from 'pinia'
 import { useCalculatorStore } from '../stores/calculator'
+import { useSearchFormStore } from './search-form'
 import { url } from '../../config'
-import { createToast } from 'mosha-vue-toastify';
+import { createToast } from 'mosha-vue-toastify'
 import 'mosha-vue-toastify/dist/style.css'
 
 export const useSaveFormStore = defineStore({
@@ -59,7 +60,12 @@ export const useSaveFormStore = defineStore({
                                       body: JSON.stringify(record)})
                 .then((response) => { if (!response.ok) { return response.text().then(text => { throw new Error(text) }) }
                                       else { return response.json() }})
-                .then((data) => console.log(data))
+                .then((data) => {
+                    createToast({ title: 'Success!', description: 'Saved to database.'},
+                                { type: 'success', timeout: 2000, position: 'bottom-center', showIcon: true })
+                    const searchStore = useSearchFormStore()
+                    searchStore.fetchRecent()
+                })
                 .catch((error) => createToast(error.message, toastOptions))
         },
     }

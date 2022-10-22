@@ -180,6 +180,10 @@ ul {
     text-align: left;
 }
 
+.accordion-btn:active {
+    transform: none;
+}
+
 .accordion-btn:after {
     /* Unicode character */
     content: '\25BC';
